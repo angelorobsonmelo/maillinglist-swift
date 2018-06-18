@@ -93,7 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				C7AA3E0920D7420800A44D7E /* login */,
-				C7AA3E0720D73E1600A44D7E /* repositories */,
 				C7AA3DEE20D6F43800A44D7E /* AppDelegate.swift */,
 				C7AA3DF220D6F43800A44D7E /* Main.storyboard */,
 				C7AA3DF820D6F43B00A44D7E /* Assets.xcassets */,
@@ -103,13 +102,6 @@
 				C7AA3E1D20D75E7900A44D7E /* Constants.swift */,
 			);
 			path = mailinglist;
-			sourceTree = "<group>";
-		};
-		C7AA3E0720D73E1600A44D7E /* repositories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = repositories;
 			sourceTree = "<group>";
 		};
 		C7AA3E0920D7420800A44D7E /* login */ = {
