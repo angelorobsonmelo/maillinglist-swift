@@ -11,8 +11,9 @@ class LoginViewController: UIViewController, LoginViewContract {
     }
 
     @IBAction func login(_ sender: Any) {
-        
         print(lbEmail.text!)
+        print(lbPassword.text!)
+        print(swRemeber.isOn)
     }
     
     func getToken(token: String) {
