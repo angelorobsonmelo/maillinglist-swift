@@ -42,6 +42,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="login:" destination="FVO-dh-mDT" eventType="touchUpInside" id="qdv-My-XKG"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EDG-wm-2IE">
                                 <rect key="frame" x="16" y="222" width="343" height="30"/>
@@ -90,6 +93,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="clh-MG-c86"/>
                     </view>
+                    <connections>
+                        <outlet property="lbEmail" destination="VQg-aX-KNr" id="w27-as-tg2"/>
+                        <outlet property="lbPassword" destination="EDG-wm-2IE" id="GRG-uY-69O"/>
+                        <outlet property="swRemeber" destination="Ojh-KJ-bcb" id="tMo-55-8Lz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLJ-kF-YIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
