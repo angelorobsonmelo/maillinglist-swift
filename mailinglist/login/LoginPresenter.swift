@@ -11,7 +11,7 @@ class LoginPresenter: LoginPresenterContract {
     }
     
     func login(auth: Auth) {
-        getAuth.auth(with: auth, onComplete: { (response) in
+        self.getAuth.auth(with: auth, onComplete: { (response) in
             if let myDictionary = response as? [String : AnyObject] {
                 let data = myDictionary["data"]
                 

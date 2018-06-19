@@ -20,6 +20,8 @@
 		C7AA3E1A20D75C8300A44D7E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AA3E1920D75C8300A44D7E /* Auth.swift */; };
 		C7AA3E1C20D75CE800A44D7E /* LoginRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AA3E1B20D75CE800A44D7E /* LoginRemoteRepository.swift */; };
 		C7AA3E1E20D75E7900A44D7E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AA3E1D20D75E7900A44D7E /* Constants.swift */; };
+		F401E75620D96B52006D5047 /* InjectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75520D96B52006D5047 /* InjectionUseCase.swift */; };
+		F401E75820D96C6B006D5047 /* InjectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75720D96C6B006D5047 /* InjectionRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		C7AA3E1B20D75CE800A44D7E /* LoginRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRemoteRepository.swift; sourceTree = "<group>"; };
 		C7AA3E1D20D75E7900A44D7E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D0EAD410BA1E024D31E0D552 /* Pods-mailinglist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mailinglist.release.xcconfig"; path = "Pods/Target Support Files/Pods-mailinglist/Pods-mailinglist.release.xcconfig"; sourceTree = "<group>"; };
+		F401E75520D96B52006D5047 /* InjectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionUseCase.swift; sourceTree = "<group>"; };
+		F401E75720D96C6B006D5047 /* InjectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,8 @@
 		C7AA3DED20D6F43800A44D7E /* mailinglist */ = {
 			isa = PBXGroup;
 			children = (
+				C7AA3E1820D75C7900A44D7E /* model */,
+				F401E75420D96B3B006D5047 /* injections */,
 				C7AA3E0920D7420800A44D7E /* login */,
 				C7AA3DEE20D6F43800A44D7E /* AppDelegate.swift */,
 				C7AA3DF220D6F43800A44D7E /* Main.storyboard */,
@@ -107,7 +113,6 @@
 		C7AA3E0920D7420800A44D7E /* login */ = {
 			isa = PBXGroup;
 			children = (
-				C7AA3E1820D75C7900A44D7E /* model */,
 				C7AA3E1020D74D1B00A44D7E /* usecases */,
 				C7AA3E0320D6F60500A44D7E /* LoginViewController.swift */,
 				C7AA3E0A20D742A100A44D7E /* LoginPresenter.swift */,
@@ -131,6 +136,15 @@
 				C7AA3E1920D75C8300A44D7E /* Auth.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		F401E75420D96B3B006D5047 /* injections */ = {
+			isa = PBXGroup;
+			children = (
+				F401E75520D96B52006D5047 /* InjectionUseCase.swift */,
+				F401E75720D96C6B006D5047 /* InjectionRepository.swift */,
+			);
+			path = injections;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +270,10 @@
 				C7AA3DF720D6F43800A44D7E /* mailinglist.xcdatamodeld in Sources */,
 				C7AA3E1A20D75C8300A44D7E /* Auth.swift in Sources */,
 				C7AA3DEF20D6F43800A44D7E /* AppDelegate.swift in Sources */,
+				F401E75820D96C6B006D5047 /* InjectionRepository.swift in Sources */,
 				C7AA3E0D20D7443500A44D7E /* LoginContract.swift in Sources */,
 				C7AA3E1E20D75E7900A44D7E /* Constants.swift in Sources */,
+				F401E75620D96B52006D5047 /* InjectionUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@ class LoginViewController: UIViewController, LoginViewContract {
     
     lazy var presenter: LoginPresenterContract = {
         return LoginPresenter(view: self,
-                              getAuth: GetAuth())
+                              getAuth: InjectionUseCase.provideGetAuth())
     }()
     
     override func viewDidLoad() {
