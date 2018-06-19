@@ -1,23 +1,24 @@
 import Foundation
 import Alamofire
 
-class LoginRemoteRespository {
+public class LoginRemoteRespositoryImpl: LoginRemoteRespository {
+
+    private let jsonEncoder = JSONEncoder()
     
     private static var INSTANCE: LoginRemoteRespository?
     
     public static func getInstance() -> LoginRemoteRespository {
         if INSTANCE == nil {
-            INSTANCE = LoginRemoteRespository()
+            INSTANCE = LoginRemoteRespositoryImpl()
         }
         
         return INSTANCE!
     }
     
-     func auth(with auth: Auth, onComplete: @escaping (AnyObject) -> Void, onError: @escaping (AnyObject) -> Void) {
-        let url = Constants.baseUrl + "/auth"
-        let jsonEncoder = JSONEncoder()
+    public func auth(with auth: Auth, onComplete: @escaping (AnyObject) -> Void, onError: @escaping (AnyObject) -> Void) {
+        let urlRequest = Constants.baseUrl + "/auth"
         let jsonData = try! jsonEncoder.encode(auth)
-        var request = URLRequest(url: URL(string: url)!)
+        var request = URLRequest(url: URL(string: urlRequest)!)
         
         request.httpMethod = "POST"
         request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")

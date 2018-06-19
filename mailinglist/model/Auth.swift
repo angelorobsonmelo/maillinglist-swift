@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct Auth:Codable {
+public struct Auth:Codable {
     
     let email: String
     let password: String

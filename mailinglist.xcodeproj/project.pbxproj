@@ -18,10 +18,11 @@
 		C7AA3E0D20D7443500A44D7E /* LoginContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AA3E0C20D7443500A44D7E /* LoginContract.swift */; };
 		C7AA3E0F20D74BFF00A44D7E /* GetAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AA3E0E20D74BFF00A44D7E /* GetAuth.swift */; };
 		C7AA3E1A20D75C8300A44D7E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AA3E1920D75C8300A44D7E /* Auth.swift */; };
-		C7AA3E1C20D75CE800A44D7E /* LoginRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AA3E1B20D75CE800A44D7E /* LoginRemoteRepository.swift */; };
+		C7AA3E1C20D75CE800A44D7E /* LoginRemoteRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AA3E1B20D75CE800A44D7E /* LoginRemoteRepositoryImpl.swift */; };
 		C7AA3E1E20D75E7900A44D7E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AA3E1D20D75E7900A44D7E /* Constants.swift */; };
 		F401E75620D96B52006D5047 /* InjectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75520D96B52006D5047 /* InjectionUseCase.swift */; };
 		F401E75820D96C6B006D5047 /* InjectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75720D96C6B006D5047 /* InjectionRepository.swift */; };
+		F401E75E20D973C9006D5047 /* LoginRemoteRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75D20D973C9006D5047 /* LoginRemoteRespository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,11 +40,12 @@
 		C7AA3E0C20D7443500A44D7E /* LoginContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContract.swift; sourceTree = "<group>"; };
 		C7AA3E0E20D74BFF00A44D7E /* GetAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAuth.swift; sourceTree = "<group>"; };
 		C7AA3E1920D75C8300A44D7E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
-		C7AA3E1B20D75CE800A44D7E /* LoginRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRemoteRepository.swift; sourceTree = "<group>"; };
+		C7AA3E1B20D75CE800A44D7E /* LoginRemoteRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRemoteRepositoryImpl.swift; sourceTree = "<group>"; };
 		C7AA3E1D20D75E7900A44D7E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D0EAD410BA1E024D31E0D552 /* Pods-mailinglist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mailinglist.release.xcconfig"; path = "Pods/Target Support Files/Pods-mailinglist/Pods-mailinglist.release.xcconfig"; sourceTree = "<group>"; };
 		F401E75520D96B52006D5047 /* InjectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionUseCase.swift; sourceTree = "<group>"; };
 		F401E75720D96C6B006D5047 /* InjectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionRepository.swift; sourceTree = "<group>"; };
+		F401E75D20D973C9006D5047 /* LoginRemoteRespository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRemoteRespository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		C7AA3DED20D6F43800A44D7E /* mailinglist */ = {
 			isa = PBXGroup;
 			children = (
+				F401E75B20D9730D006D5047 /* data */,
 				C7AA3E1820D75C7900A44D7E /* model */,
 				F401E75420D96B3B006D5047 /* injections */,
 				C7AA3E0920D7420800A44D7E /* login */,
@@ -117,7 +120,6 @@
 				C7AA3E0320D6F60500A44D7E /* LoginViewController.swift */,
 				C7AA3E0A20D742A100A44D7E /* LoginPresenter.swift */,
 				C7AA3E0C20D7443500A44D7E /* LoginContract.swift */,
-				C7AA3E1B20D75CE800A44D7E /* LoginRemoteRepository.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -145,6 +147,23 @@
 				F401E75720D96C6B006D5047 /* InjectionRepository.swift */,
 			);
 			path = injections;
+			sourceTree = "<group>";
+		};
+		F401E75B20D9730D006D5047 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				F401E75C20D9731E006D5047 /* login */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		F401E75C20D9731E006D5047 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				C7AA3E1B20D75CE800A44D7E /* LoginRemoteRepositoryImpl.swift */,
+				F401E75D20D973C9006D5047 /* LoginRemoteRespository.swift */,
+			);
+			path = login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,7 +285,7 @@
 				C7AA3E0B20D742A100A44D7E /* LoginPresenter.swift in Sources */,
 				C7AA3E0420D6F60500A44D7E /* LoginViewController.swift in Sources */,
 				C7AA3E0F20D74BFF00A44D7E /* GetAuth.swift in Sources */,
-				C7AA3E1C20D75CE800A44D7E /* LoginRemoteRepository.swift in Sources */,
+				C7AA3E1C20D75CE800A44D7E /* LoginRemoteRepositoryImpl.swift in Sources */,
 				C7AA3DF720D6F43800A44D7E /* mailinglist.xcdatamodeld in Sources */,
 				C7AA3E1A20D75C8300A44D7E /* Auth.swift in Sources */,
 				C7AA3DEF20D6F43800A44D7E /* AppDelegate.swift in Sources */,
@@ -274,6 +293,7 @@
 				C7AA3E0D20D7443500A44D7E /* LoginContract.swift in Sources */,
 				C7AA3E1E20D75E7900A44D7E /* Constants.swift in Sources */,
 				F401E75620D96B52006D5047 /* InjectionUseCase.swift in Sources */,
+				F401E75E20D973C9006D5047 /* LoginRemoteRespository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

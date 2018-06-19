@@ -16,6 +16,7 @@ class LoginViewController: UIViewController, LoginViewContract {
         super.viewDidLoad()
         lbEmail.text = "lojaaxionmaceio@gmail.com"
         lbPassword.text = "lojaaxion"
+        swRemeber.isOn = true
     }
 
     @IBAction func login(_ sender: Any) {
@@ -26,7 +27,6 @@ class LoginViewController: UIViewController, LoginViewContract {
     func getToken(token: String) {
      let jwt = try! decode(jwt: token)
      print(jwt.body)
-
     }
     
     func showError(error: AnyObject) {

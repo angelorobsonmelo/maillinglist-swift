@@ -10,7 +10,7 @@ class GetAuth {
     }
     
     func auth(with auth: Auth, onComplete: @escaping (AnyObject) -> Void, onError: @escaping (AnyObject) -> Void) {
-        loginRemoteRepository.auth(with: auth, onComplete: { (response) in
+        self.loginRemoteRepository.auth(with: auth, onComplete: { (response) in
             onComplete(response)
         })
         { (error) in
