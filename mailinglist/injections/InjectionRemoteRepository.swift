@@ -1,7 +1,7 @@
 
 import Foundation
 
-class InjectionRepository{
+class InjectionRemoteRepository {
     
     class func provideLoginRemoteRespository() -> LoginRemoteRespository {
         return LoginRemoteRespositoryImpl.getInstance()

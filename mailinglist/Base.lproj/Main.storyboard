@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FVO-dh-mDT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FVO-dh-mDT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -102,9 +102,9 @@
                         <viewLayoutGuide key="safeArea" id="clh-MG-c86"/>
                     </view>
                     <connections>
-                        <outlet property="lbEmail" destination="EDG-wm-2IE" id="2Gs-X9-RN6"/>
-                        <outlet property="lbPassword" destination="VQg-aX-KNr" id="IEt-9l-tfi"/>
                         <outlet property="swRemeber" destination="Ojh-KJ-bcb" id="tMo-55-8Lz"/>
+                        <outlet property="tfEmail" destination="EDG-wm-2IE" id="flm-ma-cRP"/>
+                        <outlet property="tfPassword" destination="VQg-aX-KNr" id="5sQ-WJ-4iC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLJ-kF-YIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
