@@ -16,7 +16,6 @@ class LoginViewController: UIViewController, LoginViewContract {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.getUser(with: context)
     }
     
     override func viewWillAppear(_ animated: Bool) {
