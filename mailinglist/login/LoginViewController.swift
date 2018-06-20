@@ -1,5 +1,6 @@
 import UIKit
 import JWTDecode
+import SwiftKeychainWrapper
 
 class LoginViewController: UIViewController, LoginViewContract {
     
@@ -25,39 +26,20 @@ class LoginViewController: UIViewController, LoginViewContract {
 
     @IBAction func login(_ sender: Any) {
         let auth = Auth(with: tfEmail.text!, with: tfPassword.text!)
-        presenter.login(auth: auth)
-    }
-    
-    func getToken(token: String) {
-     let jwt = try! decode(jwt: token)
-     let jwtBody = jwt.body
-     let user = User(context: context)
-     
-     user.id = (jwtBody["id"]! as? Int64)!
-     user.firstname = jwtBody["firsttname"]! as? String
-     user.lastname = jwtBody["lastname"]! as? String
-     user.email     = jwtBody["sub"]! as? String
-     user.role      = jwtBody["role"]! as? String
-     
-        if swRemeber.isOn {
-            user.password = tfPassword.text!
-        }
-        
-        presenter.saveUser(user: user, with: context)
-    }
-    
-    func showError(error: AnyObject) {
-        print(error)
+        presenter.login(auth: auth, isRemeberMe: swRemeber.isOn, with: context)
     }
     
     func showUser(user: User) {
-        if let password = user.password {
-            tfEmail.text = user.email
+        if let password = KeychainWrapper.standard.string(forKey: "password"), let email = KeychainWrapper.standard.string(forKey: "email") {
+            tfEmail.text = email
             tfPassword.text = password
             swRemeber.isOn = true
         }
     }
     
+    func showError(error: AnyObject) {
+        print(error)
+    }
         
 }
     

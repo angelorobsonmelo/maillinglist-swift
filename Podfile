@@ -10,5 +10,6 @@ target 'mailinglist' do
    pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :branch => 'master'
    pod 'Alamofire', '~> 4.7'
    pod 'JWTDecode', '~> 2.1'
+   pod 'SwiftKeychainWrapper'
 
 end

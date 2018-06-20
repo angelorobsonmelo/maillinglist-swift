@@ -1,8 +1,10 @@
 import Foundation
 import CoreData
+import JWTDecode
+import SwiftKeychainWrapper
 
 class LoginPresenter: LoginPresenterContract {
-   
+  
     let view: LoginViewContract
     let getAuth: GetAuth
     let saveUser: SaveUser
@@ -15,14 +17,24 @@ class LoginPresenter: LoginPresenterContract {
         self.getUser  = getUser
     }
     
-    func login(auth: Auth) {
+    func login(auth: Auth, isRemeberMe: Bool, with context: NSManagedObjectContext) {
         self.getAuth.auth(with: auth, onComplete: { (response) in
             if let myDictionary = response as? [String : AnyObject] {
                 let data = myDictionary["data"]
                 
                 if let token = data as? [String : AnyObject] {
                     let jwtToken = token["token"] as! String
-                    self.view.getToken(token: jwtToken)
+                    let userByDecodedToken = self.getUserByToken(jwtToken: jwtToken, with: context)
+                    KeychainWrapper.standard.removeObject(forKey: "email")
+                    KeychainWrapper.standard.removeObject(forKey: "password")
+                    
+                    if isRemeberMe {
+                        KeychainWrapper.standard.set(auth.email, forKey: "email")
+                        KeychainWrapper.standard.set(auth.password, forKey: "password")
+                    }
+                    
+                    self.saveUser(user: userByDecodedToken, with: context)
+                    
                 } else {
                     self.view.showError(error: "E-mail or password incorrects" as AnyObject)
                 }
@@ -31,6 +43,19 @@ class LoginPresenter: LoginPresenterContract {
         }) { (error) in
             self.view.showError(error: error)
         }
+    }
+    
+    private func getUserByToken(jwtToken: String, with context: NSManagedObjectContext) -> User {
+        let jwtDecoded = try! decode(jwt: jwtToken)
+        let jwtBody = jwtDecoded.body
+        let user = User(context: context)
+
+        user.id = (jwtBody["id"]! as? Int64)!
+        user.firstname = jwtBody["firsttname"]! as? String
+        user.lastname = jwtBody["lastname"]! as? String
+        user.role      = jwtBody["role"]! as? String
+
+        return user
     }
     
     func saveUser(user: User, with context: NSManagedObjectContext) {
