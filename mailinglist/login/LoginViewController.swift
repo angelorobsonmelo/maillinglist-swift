@@ -40,6 +40,12 @@ class LoginViewController: UIViewController, LoginViewContract {
     func showError(error: AnyObject) {
         print(error)
     }
+    
+    func userLogged(isLogged: Bool) {
+        if isLogged {
+            self.performSegue(withIdentifier: "rolesSegue", sender: self)
+        }
+    }
         
 }
     

@@ -1,15 +1,15 @@
 import Foundation
 import Alamofire
 
-public class LoginRemoteRespositoryImpl: LoginRemoteRespository {
+public class LoginRemoteRepositoryImpl: LoginRemoteRepository {
 
     private let jsonEncoder = JSONEncoder()
     
-    private static var INSTANCE: LoginRemoteRespository?
+    private static var INSTANCE: LoginRemoteRepository?
     
-    public static func getInstance() -> LoginRemoteRespository {
+    public static func getInstance() -> LoginRemoteRepository {
         if INSTANCE == nil {
-            INSTANCE = LoginRemoteRespositoryImpl()
+            INSTANCE = LoginRemoteRepositoryImpl()
         }
         
         return INSTANCE!

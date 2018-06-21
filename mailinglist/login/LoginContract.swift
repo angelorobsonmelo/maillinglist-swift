@@ -4,6 +4,7 @@ import CoreData
 protocol LoginViewContract {
     func showError(error: AnyObject) -> Void
     func showUser(user: User) -> Void
+    func userLogged(isLogged: Bool) -> Void
 }
 
 protocol LoginPresenterContract {

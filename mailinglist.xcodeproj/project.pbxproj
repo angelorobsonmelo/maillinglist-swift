@@ -26,9 +26,16 @@
 		C7BC0F9420D9EF7400F70BE2 /* UserLocalRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0F9320D9EF7400F70BE2 /* UserLocalRepositoryImpl.swift */; };
 		C7BC0F9620D9F59F00F70BE2 /* InjectionLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0F9520D9F59F00F70BE2 /* InjectionLocalRepository.swift */; };
 		C7BC0F9820DA09E000F70BE2 /* GetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0F9720DA09E000F70BE2 /* GetUser.swift */; };
+		C7BC0F9C20DB2F9D00F70BE2 /* RoleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0F9B20DB2F9D00F70BE2 /* RoleTableViewController.swift */; };
+		C7BC0F9E20DB2FC400F70BE2 /* GetRoles.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0F9D20DB2FC400F70BE2 /* GetRoles.swift */; };
+		C7BC0FA120DB303F00F70BE2 /* RoleRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FA020DB303F00F70BE2 /* RoleRemoteRepository.swift */; };
+		C7BC0FA320DB319400F70BE2 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FA220DB319400F70BE2 /* Role.swift */; };
+		C7BC0FA520DB37DF00F70BE2 /* RoleRemoteRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FA420DB37DF00F70BE2 /* RoleRemoteRepositoryImpl.swift */; };
+		C7BC0FA720DB453D00F70BE2 /* RoleContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FA620DB453D00F70BE2 /* RoleContract.swift */; };
+		C7BC0FA920DB4DF900F70BE2 /* RolePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FA820DB4DF900F70BE2 /* RolePresenter.swift */; };
 		F401E75620D96B52006D5047 /* InjectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75520D96B52006D5047 /* InjectionUseCase.swift */; };
 		F401E75820D96C6B006D5047 /* InjectionRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75720D96C6B006D5047 /* InjectionRemoteRepository.swift */; };
-		F401E75E20D973C9006D5047 /* LoginRemoteRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75D20D973C9006D5047 /* LoginRemoteRespository.swift */; };
+		F401E75E20D973C9006D5047 /* LoginRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75D20D973C9006D5047 /* LoginRemoteRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,10 +61,17 @@
 		C7BC0F9320D9EF7400F70BE2 /* UserLocalRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocalRepositoryImpl.swift; sourceTree = "<group>"; };
 		C7BC0F9520D9F59F00F70BE2 /* InjectionLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionLocalRepository.swift; sourceTree = "<group>"; };
 		C7BC0F9720DA09E000F70BE2 /* GetUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUser.swift; sourceTree = "<group>"; };
+		C7BC0F9B20DB2F9D00F70BE2 /* RoleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleTableViewController.swift; sourceTree = "<group>"; };
+		C7BC0F9D20DB2FC400F70BE2 /* GetRoles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRoles.swift; sourceTree = "<group>"; };
+		C7BC0FA020DB303F00F70BE2 /* RoleRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleRemoteRepository.swift; sourceTree = "<group>"; };
+		C7BC0FA220DB319400F70BE2 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		C7BC0FA420DB37DF00F70BE2 /* RoleRemoteRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleRemoteRepositoryImpl.swift; sourceTree = "<group>"; };
+		C7BC0FA620DB453D00F70BE2 /* RoleContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleContract.swift; sourceTree = "<group>"; };
+		C7BC0FA820DB4DF900F70BE2 /* RolePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePresenter.swift; sourceTree = "<group>"; };
 		D0EAD410BA1E024D31E0D552 /* Pods-mailinglist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mailinglist.release.xcconfig"; path = "Pods/Target Support Files/Pods-mailinglist/Pods-mailinglist.release.xcconfig"; sourceTree = "<group>"; };
 		F401E75520D96B52006D5047 /* InjectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionUseCase.swift; sourceTree = "<group>"; };
 		F401E75720D96C6B006D5047 /* InjectionRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionRemoteRepository.swift; sourceTree = "<group>"; };
-		F401E75D20D973C9006D5047 /* LoginRemoteRespository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRemoteRespository.swift; sourceTree = "<group>"; };
+		F401E75D20D973C9006D5047 /* LoginRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRemoteRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +124,7 @@
 		C7AA3DED20D6F43800A44D7E /* mailinglist */ = {
 			isa = PBXGroup;
 			children = (
+				C7BC0F9920DB2F6A00F70BE2 /* role */,
 				C7BC0F8C20D9EEB500F70BE2 /* user */,
 				F401E75B20D9730D006D5047 /* repositories */,
 				C7AA3E1820D75C7900A44D7E /* models */,
@@ -150,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				C7AA3E1920D75C8300A44D7E /* Auth.swift */,
+				C7BC0FA220DB319400F70BE2 /* Role.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -157,6 +173,7 @@
 		C7BC0F8A20D9EE5900F70BE2 /* remote */ = {
 			isa = PBXGroup;
 			children = (
+				C7BC0F9F20DB2FF100F70BE2 /* role */,
 				F401E75C20D9731E006D5047 /* login */,
 			);
 			path = remote;
@@ -196,6 +213,34 @@
 			path = user;
 			sourceTree = "<group>";
 		};
+		C7BC0F9920DB2F6A00F70BE2 /* role */ = {
+			isa = PBXGroup;
+			children = (
+				C7BC0F9A20DB2F8000F70BE2 /* usecases */,
+				C7BC0F9B20DB2F9D00F70BE2 /* RoleTableViewController.swift */,
+				C7BC0FA620DB453D00F70BE2 /* RoleContract.swift */,
+				C7BC0FA820DB4DF900F70BE2 /* RolePresenter.swift */,
+			);
+			path = role;
+			sourceTree = "<group>";
+		};
+		C7BC0F9A20DB2F8000F70BE2 /* usecases */ = {
+			isa = PBXGroup;
+			children = (
+				C7BC0F9D20DB2FC400F70BE2 /* GetRoles.swift */,
+			);
+			path = usecases;
+			sourceTree = "<group>";
+		};
+		C7BC0F9F20DB2FF100F70BE2 /* role */ = {
+			isa = PBXGroup;
+			children = (
+				C7BC0FA020DB303F00F70BE2 /* RoleRemoteRepository.swift */,
+				C7BC0FA420DB37DF00F70BE2 /* RoleRemoteRepositoryImpl.swift */,
+			);
+			path = role;
+			sourceTree = "<group>";
+		};
 		F401E75420D96B3B006D5047 /* injections */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,7 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				C7AA3E1B20D75CE800A44D7E /* LoginRemoteRepositoryImpl.swift */,
-				F401E75D20D973C9006D5047 /* LoginRemoteRespository.swift */,
+				F401E75D20D973C9006D5047 /* LoginRemoteRepository.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -343,23 +388,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7AA3E0B20D742A100A44D7E /* LoginPresenter.swift in Sources */,
+				C7BC0FA320DB319400F70BE2 /* Role.swift in Sources */,
 				C7AA3E0420D6F60500A44D7E /* LoginViewController.swift in Sources */,
 				C7AA3E0F20D74BFF00A44D7E /* GetAuth.swift in Sources */,
 				C7BC0F9820DA09E000F70BE2 /* GetUser.swift in Sources */,
+				C7BC0FA720DB453D00F70BE2 /* RoleContract.swift in Sources */,
 				C7AA3E1C20D75CE800A44D7E /* LoginRemoteRepositoryImpl.swift in Sources */,
 				C7BC0F9420D9EF7400F70BE2 /* UserLocalRepositoryImpl.swift in Sources */,
 				C7AA3DF720D6F43800A44D7E /* mailinglist.xcdatamodeld in Sources */,
 				C7AA3E1A20D75C8300A44D7E /* Auth.swift in Sources */,
+				C7BC0F9C20DB2F9D00F70BE2 /* RoleTableViewController.swift in Sources */,
 				C7AA3DEF20D6F43800A44D7E /* AppDelegate.swift in Sources */,
+				C7BC0F9E20DB2FC400F70BE2 /* GetRoles.swift in Sources */,
 				C7BC0F9620D9F59F00F70BE2 /* InjectionLocalRepository.swift in Sources */,
 				C7BC0F8F20D9EEE300F70BE2 /* SaveUser.swift in Sources */,
+				C7BC0FA920DB4DF900F70BE2 /* RolePresenter.swift in Sources */,
+				C7BC0FA520DB37DF00F70BE2 /* RoleRemoteRepositoryImpl.swift in Sources */,
 				F401E75820D96C6B006D5047 /* InjectionRemoteRepository.swift in Sources */,
+				C7BC0FA120DB303F00F70BE2 /* RoleRemoteRepository.swift in Sources */,
 				C7AA3E0D20D7443500A44D7E /* LoginContract.swift in Sources */,
 				C7AA3E1E20D75E7900A44D7E /* Constants.swift in Sources */,
 				C7BC0F8920D9EC8D00F70BE2 /* ViewController+CoreData.swift in Sources */,
 				F401E75620D96B52006D5047 /* InjectionUseCase.swift in Sources */,
 				C7BC0F9220D9EF3200F70BE2 /* UserLocalRepository.swift in Sources */,
-				F401E75E20D973C9006D5047 /* LoginRemoteRespository.swift in Sources */,
+				F401E75E20D973C9006D5047 /* LoginRemoteRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

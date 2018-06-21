@@ -3,8 +3,12 @@ import Foundation
 
 class InjectionRemoteRepository {
     
-    class func provideLoginRemoteRespository() -> LoginRemoteRespository {
-        return LoginRemoteRespositoryImpl.getInstance()
-}
+    class func provideLoginRemoteRepository() -> LoginRemoteRepository {
+        return LoginRemoteRepositoryImpl.getInstance()
+   }
+    
+    class func provideRoleRemoteRepository() -> RoleRemoteRepository {
+        return RoleRemoteRepositoryImpl.getInstance()
+    }
 
 }

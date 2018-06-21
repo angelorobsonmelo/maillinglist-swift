@@ -3,9 +3,9 @@ import Foundation
 
 class GetAuth {
     
-    private let loginRemoteRepository: LoginRemoteRespository
+    private let loginRemoteRepository: LoginRemoteRepository
     
-    init(loginRemoteRepository: LoginRemoteRespository) {
+    init(loginRemoteRepository: LoginRemoteRepository) {
         self.loginRemoteRepository = loginRemoteRepository
     }
     

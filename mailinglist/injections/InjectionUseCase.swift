@@ -3,18 +3,23 @@ import Foundation
 
 class InjectionUseCase {
     
-    private static let loginRemoteRepository = InjectionRemoteRepository.provideLoginRemoteRespository()
-    private static let UserLocalRepository = InjectionLocalRepository.provideUserLocalRespository()
+    private static let loginRemoteRepository = InjectionRemoteRepository.provideLoginRemoteRepository()
+    private static let userLocalRepository = InjectionLocalRepository.provideUserLocalRespository()
+    private static let roleRemoteRepository = InjectionRemoteRepository.provideRoleRemoteRepository()
     
     class func provideGetAuth() -> GetAuth {
         return GetAuth(loginRemoteRepository: loginRemoteRepository)
     }
     
     class func provideSaveUser() -> SaveUser {
-       return SaveUser(userLocalRepository: UserLocalRepository)
+       return SaveUser(userLocalRepository: userLocalRepository)
     }
     
     class func provideGetUser() -> GetUser {
-        return GetUser(userLocalRepository: UserLocalRepository)
+        return GetUser(userLocalRepository: userLocalRepository)
+    }
+    
+    class func provideGetRoles() -> GetRoles {
+        return GetRoles(roleRemoteRepository: roleRemoteRepository)
     }
 }

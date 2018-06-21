@@ -24,9 +24,13 @@ class LoginPresenter: LoginPresenterContract {
                 
                 if let token = data as? [String : AnyObject] {
                     let jwtToken = token["token"] as! String
+                    
                     let userByDecodedToken = self.getUserByToken(jwtToken: jwtToken, with: context)
                     KeychainWrapper.standard.removeObject(forKey: "email")
                     KeychainWrapper.standard.removeObject(forKey: "password")
+                    KeychainWrapper.standard.removeObject(forKey: "token")
+
+                    KeychainWrapper.standard.set(jwtToken, forKey: "token")
                     
                     if isRemeberMe {
                         KeychainWrapper.standard.set(auth.email, forKey: "email")
@@ -34,6 +38,7 @@ class LoginPresenter: LoginPresenterContract {
                     }
                     
                     self.saveUser(user: userByDecodedToken, with: context)
+                    self.view.userLogged(isLogged: true)
                     
                 } else {
                     self.view.showError(error: "E-mail or password incorrects" as AnyObject)
