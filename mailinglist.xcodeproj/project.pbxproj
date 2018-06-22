@@ -33,6 +33,8 @@
 		C7BC0FA520DB37DF00F70BE2 /* RoleRemoteRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FA420DB37DF00F70BE2 /* RoleRemoteRepositoryImpl.swift */; };
 		C7BC0FA720DB453D00F70BE2 /* RoleContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FA620DB453D00F70BE2 /* RoleContract.swift */; };
 		C7BC0FA920DB4DF900F70BE2 /* RolePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FA820DB4DF900F70BE2 /* RolePresenter.swift */; };
+		C7BC0FAE20DC7E7A00F70BE2 /* RolesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FAD20DC7E7A00F70BE2 /* RolesResponse.swift */; };
+		C7BC0FB120DC8DBB00F70BE2 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FB020DC8DBB00F70BE2 /* WeatherResponse.swift */; };
 		F401E75620D96B52006D5047 /* InjectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75520D96B52006D5047 /* InjectionUseCase.swift */; };
 		F401E75820D96C6B006D5047 /* InjectionRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75720D96C6B006D5047 /* InjectionRemoteRepository.swift */; };
 		F401E75E20D973C9006D5047 /* LoginRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75D20D973C9006D5047 /* LoginRemoteRepository.swift */; };
@@ -68,6 +70,8 @@
 		C7BC0FA420DB37DF00F70BE2 /* RoleRemoteRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleRemoteRepositoryImpl.swift; sourceTree = "<group>"; };
 		C7BC0FA620DB453D00F70BE2 /* RoleContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleContract.swift; sourceTree = "<group>"; };
 		C7BC0FA820DB4DF900F70BE2 /* RolePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePresenter.swift; sourceTree = "<group>"; };
+		C7BC0FAD20DC7E7A00F70BE2 /* RolesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolesResponse.swift; sourceTree = "<group>"; };
+		C7BC0FB020DC8DBB00F70BE2 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		D0EAD410BA1E024D31E0D552 /* Pods-mailinglist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mailinglist.release.xcconfig"; path = "Pods/Target Support Files/Pods-mailinglist/Pods-mailinglist.release.xcconfig"; sourceTree = "<group>"; };
 		F401E75520D96B52006D5047 /* InjectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionUseCase.swift; sourceTree = "<group>"; };
 		F401E75720D96C6B006D5047 /* InjectionRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionRemoteRepository.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 		C7AA3DED20D6F43800A44D7E /* mailinglist */ = {
 			isa = PBXGroup;
 			children = (
+				C7BC0FAA20DC6E5400F70BE2 /* responses */,
 				C7BC0F9920DB2F6A00F70BE2 /* role */,
 				C7BC0F8C20D9EEB500F70BE2 /* user */,
 				F401E75B20D9730D006D5047 /* repositories */,
@@ -166,6 +171,7 @@
 			children = (
 				C7AA3E1920D75C8300A44D7E /* Auth.swift */,
 				C7BC0FA220DB319400F70BE2 /* Role.swift */,
+				C7BC0FB020DC8DBB00F70BE2 /* WeatherResponse.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -237,6 +243,22 @@
 			children = (
 				C7BC0FA020DB303F00F70BE2 /* RoleRemoteRepository.swift */,
 				C7BC0FA420DB37DF00F70BE2 /* RoleRemoteRepositoryImpl.swift */,
+			);
+			path = role;
+			sourceTree = "<group>";
+		};
+		C7BC0FAA20DC6E5400F70BE2 /* responses */ = {
+			isa = PBXGroup;
+			children = (
+				C7BC0FAF20DC7EDB00F70BE2 /* role */,
+			);
+			path = responses;
+			sourceTree = "<group>";
+		};
+		C7BC0FAF20DC7EDB00F70BE2 /* role */ = {
+			isa = PBXGroup;
+			children = (
+				C7BC0FAD20DC7E7A00F70BE2 /* RolesResponse.swift */,
 			);
 			path = role;
 			sourceTree = "<group>";
@@ -364,14 +386,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-mailinglist/Pods-mailinglist-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftValidator/SwiftValidator.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftValidator.framework",
 			);
@@ -387,6 +413,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7BC0FAE20DC7E7A00F70BE2 /* RolesResponse.swift in Sources */,
 				C7AA3E0B20D742A100A44D7E /* LoginPresenter.swift in Sources */,
 				C7BC0FA320DB319400F70BE2 /* Role.swift in Sources */,
 				C7AA3E0420D6F60500A44D7E /* LoginViewController.swift in Sources */,
@@ -398,6 +425,7 @@
 				C7AA3DF720D6F43800A44D7E /* mailinglist.xcdatamodeld in Sources */,
 				C7AA3E1A20D75C8300A44D7E /* Auth.swift in Sources */,
 				C7BC0F9C20DB2F9D00F70BE2 /* RoleTableViewController.swift in Sources */,
+				C7BC0FB120DC8DBB00F70BE2 /* WeatherResponse.swift in Sources */,
 				C7AA3DEF20D6F43800A44D7E /* AppDelegate.swift in Sources */,
 				C7BC0F9E20DB2FC400F70BE2 /* GetRoles.swift in Sources */,
 				C7BC0F9620D9F59F00F70BE2 /* InjectionLocalRepository.swift in Sources */,

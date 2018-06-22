@@ -11,5 +11,6 @@ target 'mailinglist' do
    pod 'Alamofire', '~> 4.7'
    pod 'JWTDecode', '~> 2.1'
    pod 'SwiftKeychainWrapper'
+   pod 'AlamofireObjectMapper', '~> 5.0'
 
 end

@@ -1,14 +1,13 @@
-//
-//  RolesTableViewController.swift
-//  mailinglist
-//
-//  Created by stant on 20/06/18.
-//  Copyright © 2018 angelorobson. All rights reserved.
-//
-
 import UIKit
 
 class RoleTableViewController: UITableViewController, RoleViewContract {
+    
+    var label: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = .black
+        return label
+    }()
     
     lazy var presenter: RolePresenterContract = {
         return RolePresenter(view: self, getRoles: InjectionUseCase.provideGetRoles())
@@ -18,6 +17,12 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        label.text = "Please, wait..."
         presenter.getRoles()
     }
     
@@ -26,23 +31,15 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
     }
     
     func showRoles(roles: [Role]) {
-        self.roles = roles
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+            self.roles = roles
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.roles.count
+        return roles.count
     }
 
     
@@ -61,17 +58,18 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+ 
 
     /*
     // Override to support rearranging the table view.

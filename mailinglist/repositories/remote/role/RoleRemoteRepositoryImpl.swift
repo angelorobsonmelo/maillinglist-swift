@@ -1,6 +1,9 @@
 import Foundation
 import Alamofire
 import SwiftKeychainWrapper
+import ObjectMapper
+import AlamofireObjectMapper
+
 
 public class RoleRemoteRepositoryImpl: RoleRemoteRepository {
    
@@ -25,24 +28,35 @@ public class RoleRemoteRepositoryImpl: RoleRemoteRepository {
             "Accept": "application/json"
         ]
         
-        Alamofire.request(roleUrl, headers: headers).responseJSON { response in
+        Alamofire.request(roleUrl, headers: headers).responseObject { (response: DataResponse<RolesResponse>) in
             switch response.result {
             case .success:
-                    do {
-                        if let data = response.data {
-                        let role = try JSONDecoder().decode(Role.self, from: data)
-                        
-                        onSuccess([role] as [Role])
-                        }
-                            } catch {
-                                 print(error.localizedDescription)
-                                 onError(error.localizedDescription)
-                                    }
-                
+                if let roleResponse = response.result.value?.data?.content {
+                    if roleResponse.isEmpty {
+                        onEmpty()
+                        return
+                    }
+                    
+                    onSuccess(roleResponse)
+                }
             case .failure(let error):
-                onError(error.localizedDescription)
+                onError(error as! String)
             }
+
         }
         
     }
 }
+
+class Result<T: Mappable>: Mappable {
+    var result: T?
+    
+    required init?(map: Map){
+        
+    }
+    
+    func mapping(map: Map) {
+        result <- map["result"]
+    }
+}
+

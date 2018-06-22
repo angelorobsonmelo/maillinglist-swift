@@ -1,9 +1,11 @@
 import Foundation
+import ObjectMapper
 
-public class Role: Codable {
+
+public class Role: Codable, Mappable {
     
-    var id: Optional<Int> = Optional.none
-    var function: String
+    var id: Int?
+    var function: String?
     
     init(id: Int, function: String) {
         self.id = id
@@ -12,6 +14,15 @@ public class Role: Codable {
     
     init(function: String) {
         self.function = function
+    }
+    
+    required public init?(map: Map){
+        
+    }
+    
+    public func mapping(map: Map) {
+        id <- map["id"]
+        function <- map["function"]
     }
 }
 
