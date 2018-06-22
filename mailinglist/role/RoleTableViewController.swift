@@ -69,6 +69,7 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
         alert.addTextField { (textField) in
             textField.clearButtonMode = .whileEditing
             textField.placeholder = "Role"
+            textField.returnKeyType = .done
             if let id = role?.id {
                 textField.text = role?.function!
                 self.id = id
@@ -80,14 +81,15 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
             
             if let id = self.id {
                let role = Role(id: id, function: function!)
+                
                self.id = nil
                 
                return
             }
-            
+
         }))
         
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.view.tintColor = UIColor(named: "second")
         present(alert, animated: true, completion: nil)
     }

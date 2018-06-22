@@ -28,7 +28,7 @@ public class RoleRemoteRepositoryImpl: RoleRemoteRepository {
             "Accept": "application/json"
         ]
         
-        Alamofire.request(roleUrl, headers: headers).responseObject { (response: DataResponse<RolesResponse>) in
+        Alamofire.request(roleUrl, headers: headers).responseObject { (response: DataResponse<RolesResponse<DataRole>>) in
             switch response.result {
             case .success:
                 if let roleResponse = response.result.value?.data?.content {

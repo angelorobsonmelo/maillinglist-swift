@@ -1,9 +1,9 @@
 import ObjectMapper
 import Foundation
 
-class RoleResponse: Mappable {
+class RoleResponse<T>: Mappable {
     var errors: [String]?
-    var data: DataRole?
+    var data: T?
     
     required init?(map: Map) {
         
