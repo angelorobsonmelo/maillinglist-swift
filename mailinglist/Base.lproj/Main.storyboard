@@ -149,7 +149,14 @@
                             <outlet property="delegate" destination="Jf8-2h-W7j" id="nuA-77-Tef"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Roles" largeTitleDisplayMode="always" id="NbZ-ij-9HA"/>
+                    <navigationItem key="navigationItem" title="Roles" largeTitleDisplayMode="always" id="NbZ-ij-9HA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NZF-An-dCB">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addRole:" destination="Jf8-2h-W7j" id="Gj3-7E-XxL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdy-SB-ovt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -164,6 +171,9 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="main"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

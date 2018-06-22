@@ -14,6 +14,8 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
     }()
     
     var roles: [Role] = []
+    
+    var id: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,15 +51,47 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
         cell.textLabel?.text = roles[indexPath.row].function
         return cell
     }
- 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let role = self.roles[indexPath.row]
+        showAlertForm(with: role)
+        tableView.deselectRow(at: indexPath, animated: false)
     }
-    */
-
+    
+    @IBAction func addRole(_ sender: UIBarButtonItem) {
+        showAlertForm(with: nil)
+    }
+    
+    func showAlertForm(with role: Role?) {
+        let title = role == nil ? "Add" : "Edit"
+        let alert = UIAlertController(title: title + " Role", message: nil, preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.clearButtonMode = .whileEditing
+            textField.placeholder = "Role"
+            if let id = role?.id {
+                textField.text = role?.function!
+                self.id = id
+            }
+        }
+        
+        alert.addAction(UIAlertAction(title: title, style: .default, handler: { (action) in
+            let function = alert.textFields?.first?.text
+            
+            if let id = self.id {
+               let role = Role(id: id, function: function!)
+               self.id = nil
+                
+               return
+            }
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        alert.view.tintColor = UIColor(named: "second")
+        present(alert, animated: true, completion: nil)
+    }
+ 
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -65,35 +99,10 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
             // Delete the row from the data source
 //            tableView.deleteRows(at: [indexPath], with: .fade)
             
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
  
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

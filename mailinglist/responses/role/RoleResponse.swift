@@ -1,28 +1,28 @@
 import ObjectMapper
 import Foundation
 
-class RolesResponse: Mappable {
+class RoleResponse: Mappable {
     var errors: [String]?
-    var data: DataRoles?
-
+    var data: DataRole?
+    
     required init?(map: Map) {
-
+        
     }
-
+    
     func mapping(map: Map) {
         errors <- map["errors"]
         data <- map["data"]
     }
 }
 
-class DataRoles: Mappable {
-
-     var content: [Role]?
-
+class DataRole: Mappable {
+    
+    var content: [Role]?
+    
     required init?(map: Map){
-
+        
     }
-
+    
     func mapping(map: Map) {
         content <- map["content"]
     }
