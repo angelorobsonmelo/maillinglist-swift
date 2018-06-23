@@ -37,6 +37,7 @@
 		C7BC0FB720DDBC6C00F70BE2 /* saveRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FB620DDBC6C00F70BE2 /* saveRole.swift */; };
 		C7BC0FB920DDC3FE00F70BE2 /* ResponseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FB820DDC3FE00F70BE2 /* ResponseBase.swift */; };
 		C7BC0FBC20DDD16B00F70BE2 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FBB20DDD16B00F70BE2 /* Utils.swift */; };
+		C7BC0FBE20DDEEB700F70BE2 /* DeleteRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FBD20DDEEB700F70BE2 /* DeleteRole.swift */; };
 		F401E75620D96B52006D5047 /* InjectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75520D96B52006D5047 /* InjectionUseCase.swift */; };
 		F401E75820D96C6B006D5047 /* InjectionRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75720D96C6B006D5047 /* InjectionRemoteRepository.swift */; };
 		F401E75E20D973C9006D5047 /* LoginRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75D20D973C9006D5047 /* LoginRemoteRepository.swift */; };
@@ -76,6 +77,7 @@
 		C7BC0FB620DDBC6C00F70BE2 /* saveRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saveRole.swift; sourceTree = "<group>"; };
 		C7BC0FB820DDC3FE00F70BE2 /* ResponseBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseBase.swift; sourceTree = "<group>"; };
 		C7BC0FBB20DDD16B00F70BE2 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		C7BC0FBD20DDEEB700F70BE2 /* DeleteRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRole.swift; sourceTree = "<group>"; };
 		D0EAD410BA1E024D31E0D552 /* Pods-mailinglist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mailinglist.release.xcconfig"; path = "Pods/Target Support Files/Pods-mailinglist/Pods-mailinglist.release.xcconfig"; sourceTree = "<group>"; };
 		F401E75520D96B52006D5047 /* InjectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionUseCase.swift; sourceTree = "<group>"; };
 		F401E75720D96C6B006D5047 /* InjectionRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionRemoteRepository.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			children = (
 				C7BC0F9D20DB2FC400F70BE2 /* GetRoles.swift */,
 				C7BC0FB620DDBC6C00F70BE2 /* saveRole.swift */,
+				C7BC0FBD20DDEEB700F70BE2 /* DeleteRole.swift */,
 			);
 			path = usecases;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				C7AA3E1A20D75C8300A44D7E /* Auth.swift in Sources */,
 				C7BC0F9C20DB2F9D00F70BE2 /* RoleTableViewController.swift in Sources */,
 				C7AA3DEF20D6F43800A44D7E /* AppDelegate.swift in Sources */,
+				C7BC0FBE20DDEEB700F70BE2 /* DeleteRole.swift in Sources */,
 				C7BC0F9E20DB2FC400F70BE2 /* GetRoles.swift in Sources */,
 				C7BC0F9620D9F59F00F70BE2 /* InjectionLocalRepository.swift in Sources */,
 				C7BC0F8F20D9EEE300F70BE2 /* SaveUser.swift in Sources */,

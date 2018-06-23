@@ -1,7 +1,7 @@
 import UIKit
 
 class RoleTableViewController: UITableViewController, RoleViewContract {
-
+  
     var label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -10,7 +10,7 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
     }()
     
     lazy var presenter: RolePresenterContract = {
-        return RolePresenter(view: self, getRoles: InjectionUseCase.provideGetRoles(), saveRole: InjectionUseCase.provideSaveRole())
+        return RolePresenter(view: self, getRoles: InjectionUseCase.provideGetRoles(), saveRole: InjectionUseCase.provideSaveRole(), deleteRole: InjectionUseCase.provideDeleteRole())
     }()
     
     var roles: [Role] = []
@@ -102,15 +102,19 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
         print(role)
     }
     
- 
-    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+           let role = self.roles[indexPath.row]
+           self.presenter.deleteRole(role: role)
             // Delete the row from the data source
 //            tableView.deleteRows(at: [indexPath], with: .fade)
             
         }
+    }
+    
+    func deleteRole(isSuccess: Bool) {
+        print(isSuccess)
     }
  
 

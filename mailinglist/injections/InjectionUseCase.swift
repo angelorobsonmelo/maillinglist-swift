@@ -26,4 +26,8 @@ class InjectionUseCase {
     class func provideSaveRole() -> SaveRole {
         return SaveRole(roleRemoteRepository: roleRemoteRepository)
     }
+    
+    class func provideDeleteRole() -> DeleteRole {
+        return DeleteRole(roleRemoteRepository: roleRemoteRepository)
+    }
 }

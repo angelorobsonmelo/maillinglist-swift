@@ -4,9 +4,8 @@ import SwiftKeychainWrapper
 import ObjectMapper
 import AlamofireObjectMapper
 
-
 public class RoleRemoteRepositoryImpl: RoleRemoteRepository {
- 
+  
     private let jsonEncoder = JSONEncoder()
     private let roleUrl = "\(Constants.baseUrl)/functions"
     let headers = Utils.getHeadersWithJwtToken()
@@ -62,6 +61,21 @@ public class RoleRemoteRepositoryImpl: RoleRemoteRepository {
                     
                     onSuccess(roleResponse)
                 }
+            case .failure(let error):
+                onError(response.result.value?.errors ?? [error.localizedDescription])
+            }
+            
+        }
+    }
+    
+    public func delete(role: Role, onSuccess: @escaping (Bool?) -> Void, onError: @escaping ([String]) -> Void) {
+        let url = "functions/\(role.id!)"
+        let request = Utils.getRequest(object: role, url: url, method: HTTPMethod.delete.rawValue)
+
+        Alamofire.request(request).responseObject { (response: DataResponse<ResponseBase<Role>>) in
+            switch response.result {
+            case .success:
+                onSuccess(true)
             case .failure(let error):
                 onError(response.result.value?.errors ?? [error.localizedDescription])
             }
