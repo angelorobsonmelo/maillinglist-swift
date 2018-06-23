@@ -43,10 +43,11 @@ public class RoleRemoteRepositoryImpl: RoleRemoteRepository {
     }
     
     public func save(role: Role, onSuccess: @escaping (Role?) -> Void, onEmpty: @escaping () -> Void, onError: @escaping ([String]) -> Void) {
-        let url = "functions"
+        var url = "functions"
         var request = Utils.getRequest(object: role, url: url, method: HTTPMethod.post.rawValue)
 
-        if role.id != nil {
+        if let id = role.id {
+             url += "/\(id)"
              request = Utils.getRequest(object: role, url: url, method: HTTPMethod.put.rawValue)
         }
         
