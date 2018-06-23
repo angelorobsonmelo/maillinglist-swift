@@ -14,8 +14,8 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
     }()
     
     var roles: [Role] = []
-    
     var id: Int?
+    var isEdited = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +34,7 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
     
     func showRoles(roles: [Role]) {
             self.roles = roles
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -68,6 +66,7 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
         
         alert.addTextField { (textField) in
             textField.clearButtonMode = .whileEditing
+            textField.autocapitalizationType = .sentences
             textField.placeholder = "Role"
             textField.returnKeyType = .done
             if let id = role?.id {
@@ -91,6 +90,7 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
         
         if let id = self.id {
             self.id = id
+            self.isEdited = true
             role = Role(id: id, function: function)
             self.id = nil
         }
@@ -99,17 +99,41 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
     }
     
     func showRole(role: Role) {
-        print(role)
+        if self.isEdited {
+            updateItem(updatedItem: role)
+            self.isEdited = false
+            return
+        }
+        
+        self.roles.append(role)
+    
+        let indexPath = IndexPath(row: self.roles.count - 1, section: 0)
+        
+        tableView.beginUpdates()
+        tableView.insertRows(at: [indexPath], with: .fade)
+        tableView.endUpdates()
     }
     
-    // Override to support editing the table view.
+    func updateItem(updatedItem: Role)  {
+         let index = self.roles.index(where: { $0.id == updatedItem.id })
+         self.roles[index!] = updatedItem
+        
+        let indexPath = IndexPath(item: index!, section: 0)
+        tableView.beginUpdates()
+        tableView.reloadRows(at: [indexPath], with: .fade)
+        tableView.endUpdates()
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+         let role = self.roles[indexPath.row]
+        
         if editingStyle == .delete {
-           let role = self.roles[indexPath.row]
-           self.presenter.deleteRole(role: role)
-            // Delete the row from the data source
-//            tableView.deleteRows(at: [indexPath], with: .fade)
+            self.roles.remove(at: indexPath.row)
+            self.presenter.deleteRole(role: role)
             
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.beginUpdates()
+            tableView.endUpdates()
         }
     }
     
