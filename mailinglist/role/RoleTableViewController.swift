@@ -1,7 +1,7 @@
 import UIKit
 
 class RoleTableViewController: UITableViewController, RoleViewContract {
-    
+
     var label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -10,7 +10,7 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
     }()
     
     lazy var presenter: RolePresenterContract = {
-        return RolePresenter(view: self, getRoles: InjectionUseCase.provideGetRoles())
+        return RolePresenter(view: self, getRoles: InjectionUseCase.provideGetRoles(), saveRole: InjectionUseCase.provideSaveRole())
     }()
     
     var roles: [Role] = []
@@ -78,21 +78,30 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
         
         alert.addAction(UIAlertAction(title: title, style: .default, handler: { (action) in
             let function = alert.textFields?.first?.text
-            
-            if let id = self.id {
-               let role = Role(id: id, function: function!)
-                
-               self.id = nil
-                
-               return
-            }
-
+            self.saveRole(function: function!)
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.view.tintColor = UIColor(named: "second")
         present(alert, animated: true, completion: nil)
     }
+    
+    private func saveRole(function: String) {
+        var role = Role(function: function)
+        
+        if let id = self.id {
+            self.id = id
+            role = Role(id: id, function: function)
+            self.id = nil
+        }
+        
+        self.presenter.saveRole(role: role)
+    }
+    
+    func showRole(role: Role) {
+        print(role)
+    }
+    
  
     
     // Override to support editing the table view.

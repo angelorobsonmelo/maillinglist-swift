@@ -18,6 +18,7 @@ struct Utils {
     }
     
     public static func getRequest<T: Codable>(object: T, url: String, method: String) ->  URLRequest {
+        let token = KeychainWrapper.standard.string(forKey: "token")
         let jsonEncoder = JSONEncoder()
         let urlRequest = Constants.baseUrl + "/\(url)"
         let jsonData = try! jsonEncoder.encode(object)
@@ -25,6 +26,7 @@ struct Utils {
         
         request.httpMethod = method
         request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token!)", forHTTPHeaderField: "Authorization")
         request.httpBody = jsonData
         
         return request

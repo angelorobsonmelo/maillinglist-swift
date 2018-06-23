@@ -41,17 +41,34 @@ public class RoleRemoteRepositoryImpl: RoleRemoteRepository {
         }
         
     }
+    
+    public func save(role: Role, onSuccess: @escaping (Role?) -> Void, onEmpty: @escaping () -> Void, onError: @escaping ([String]) -> Void) {
+        let url = "functions"
+        var request = Utils.getRequest(object: role, url: url, method: HTTPMethod.post.rawValue)
+
+        if role.id != nil {
+             request = Utils.getRequest(object: role, url: url, method: HTTPMethod.put.rawValue)
+        }
+        
+        Alamofire.request(request).responseObject { (response: DataResponse<ResponseBase<Role>>) in
+            switch response.result {
+            case .success:
+                if let roleResponse = response.result.value?.data {
+                    if roleResponse.id == nil {
+                        onEmpty()
+                        return
+                    }
+                    
+                    onSuccess(roleResponse)
+                }
+            case .failure(let error):
+                onError(response.result.value?.errors ?? [error.localizedDescription])
+            }
+            
+        }
+    }
+    
+    
 }
 
-class Result<T: Mappable>: Mappable {
-    var result: T?
-    
-    required init?(map: Map){
-        
-    }
-    
-    func mapping(map: Map) {
-        result <- map["result"]
-    }
-}
 
