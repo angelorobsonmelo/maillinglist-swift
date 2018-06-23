@@ -28,8 +28,8 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
         presenter.getRoles()
     }
     
-    func showError(error: AnyObject) {
-        print(error.debugDescription)
+    func showError(error: [String]) {
+        print(error)
     }
     
     func showRoles(roles: [Role]) {

@@ -16,7 +16,7 @@ class RolePresenter: RolePresenterContract {
         }, onEmpty: {
             
         }) { (error) in
-            self.view.showError(error: error.debugDescription as AnyObject)
+            self.view.showError(error: error)
         }
     }
     

@@ -1,7 +1,7 @@
 import Foundation
 
 protocol RoleViewContract {
-    func showError(error: AnyObject) -> Void
+    func showError(error: [String]) -> Void
     func showRoles(roles: [Role]) -> Void
 }
 

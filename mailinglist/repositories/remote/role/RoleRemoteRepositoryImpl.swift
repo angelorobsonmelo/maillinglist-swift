@@ -6,9 +6,10 @@ import AlamofireObjectMapper
 
 
 public class RoleRemoteRepositoryImpl: RoleRemoteRepository {
-   
+ 
     private let jsonEncoder = JSONEncoder()
     private let roleUrl = "\(Constants.baseUrl)/functions"
+    let headers = Utils.getHeadersWithJwtToken()
 
     private static var INSTANCE: RoleRemoteRepository?
     
@@ -20,15 +21,9 @@ public class RoleRemoteRepositoryImpl: RoleRemoteRepository {
         return INSTANCE!
     }
     
-    public func getRoles(onSuccess: @escaping ([Role?]) -> Void, onEmpty: @escaping () -> Void, onError: @escaping (String) -> Void) {
-        let token = KeychainWrapper.standard.string(forKey: "token")
+    public func getRoles(onSuccess: @escaping ([Role?]) -> Void, onEmpty: @escaping () -> Void, onError: @escaping ([String]) -> Void) {
         
-        let headers: HTTPHeaders = [
-            "Authorization": "Bearer \(token!)",
-            "Accept": "application/json"
-        ]
-        
-        Alamofire.request(roleUrl, headers: headers).responseObject { (response: DataResponse<RolesResponse<DataRole>>) in
+        Alamofire.request(self.roleUrl, headers: self.headers).responseObject { (response: DataResponse<ResponseBase<DataRoles>>) in
             switch response.result {
             case .success:
                 if let roleResponse = response.result.value?.data?.content {
@@ -40,7 +35,7 @@ public class RoleRemoteRepositoryImpl: RoleRemoteRepository {
                     onSuccess(roleResponse)
                 }
             case .failure(let error):
-                onError(error as! String)
+                onError(response.result.value?.errors ?? [error.localizedDescription])
             }
 
         }
