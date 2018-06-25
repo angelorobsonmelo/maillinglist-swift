@@ -35,7 +35,6 @@ class RolePresenter: RolePresenterContract {
     }
     
     func deleteRole(role: Role) {
-        deleteRole.delete(role: role, onSuccess: { (response) in
             self.deleteRole.delete(role: role, onSuccess: { (response) in
                 if let isSuccess = response {
                     self.view.deleteRole(isSuccess: isSuccess)
@@ -43,9 +42,6 @@ class RolePresenter: RolePresenterContract {
             }, onError: { (error) in
                 self.view.showError(error: error)
             })
-        }) { (error) in
-            
-        }
     }
     
     

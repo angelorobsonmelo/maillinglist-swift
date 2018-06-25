@@ -112,6 +112,8 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
         tableView.beginUpdates()
         tableView.insertRows(at: [indexPath], with: .fade)
         tableView.endUpdates()
+        
+        presenter.getRoles()
     }
     
     func updateItem(updatedItem: Role)  {
