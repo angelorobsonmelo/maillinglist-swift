@@ -38,6 +38,7 @@
 		C7BC0FB920DDC3FE00F70BE2 /* ResponseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FB820DDC3FE00F70BE2 /* ResponseBase.swift */; };
 		C7BC0FBC20DDD16B00F70BE2 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FBB20DDD16B00F70BE2 /* Utils.swift */; };
 		C7BC0FBE20DDEEB700F70BE2 /* DeleteRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FBD20DDEEB700F70BE2 /* DeleteRole.swift */; };
+		C7BC0FC120E1A1AB00F70BE2 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FC020E1A1AB00F70BE2 /* Sort.swift */; };
 		F401E75620D96B52006D5047 /* InjectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75520D96B52006D5047 /* InjectionUseCase.swift */; };
 		F401E75820D96C6B006D5047 /* InjectionRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75720D96C6B006D5047 /* InjectionRemoteRepository.swift */; };
 		F401E75E20D973C9006D5047 /* LoginRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75D20D973C9006D5047 /* LoginRemoteRepository.swift */; };
@@ -78,6 +79,7 @@
 		C7BC0FB820DDC3FE00F70BE2 /* ResponseBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseBase.swift; sourceTree = "<group>"; };
 		C7BC0FBB20DDD16B00F70BE2 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		C7BC0FBD20DDEEB700F70BE2 /* DeleteRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRole.swift; sourceTree = "<group>"; };
+		C7BC0FC020E1A1AB00F70BE2 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		D0EAD410BA1E024D31E0D552 /* Pods-mailinglist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mailinglist.release.xcconfig"; path = "Pods/Target Support Files/Pods-mailinglist/Pods-mailinglist.release.xcconfig"; sourceTree = "<group>"; };
 		F401E75520D96B52006D5047 /* InjectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionUseCase.swift; sourceTree = "<group>"; };
 		F401E75720D96C6B006D5047 /* InjectionRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionRemoteRepository.swift; sourceTree = "<group>"; };
@@ -257,8 +259,8 @@
 		C7BC0FAA20DC6E5400F70BE2 /* responses */ = {
 			isa = PBXGroup;
 			children = (
+				C7BC0FBF20E1A18F00F70BE2 /* base */,
 				C7BC0FAF20DC7EDB00F70BE2 /* role */,
-				C7BC0FB820DDC3FE00F70BE2 /* ResponseBase.swift */,
 			);
 			path = responses;
 			sourceTree = "<group>";
@@ -278,6 +280,15 @@
 				C7BC0FBB20DDD16B00F70BE2 /* Utils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		C7BC0FBF20E1A18F00F70BE2 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				C7BC0FB820DDC3FE00F70BE2 /* ResponseBase.swift */,
+				C7BC0FC020E1A1AB00F70BE2 /* Sort.swift */,
+			);
+			path = base;
 			sourceTree = "<group>";
 		};
 		F401E75420D96B3B006D5047 /* injections */ = {
@@ -432,6 +443,7 @@
 			files = (
 				C7BC0FAE20DC7E7A00F70BE2 /* RolesResponse.swift in Sources */,
 				C7AA3E0B20D742A100A44D7E /* LoginPresenter.swift in Sources */,
+				C7BC0FC120E1A1AB00F70BE2 /* Sort.swift in Sources */,
 				C7BC0FA320DB319400F70BE2 /* Role.swift in Sources */,
 				C7AA3E0420D6F60500A44D7E /* LoginViewController.swift in Sources */,
 				C7BC0FBC20DDD16B00F70BE2 /* Utils.swift in Sources */,
