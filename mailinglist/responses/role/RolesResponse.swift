@@ -11,7 +11,7 @@ class DataRoles: Mappable {
     var numberOfElements: Int?
     var totalElements: Int?
     var totalPages: Int?
-    var sort: Sort?
+    var sort: [Sort]?
     
     required init?(map: Map){
 
