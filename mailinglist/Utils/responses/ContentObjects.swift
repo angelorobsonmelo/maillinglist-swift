@@ -5,7 +5,7 @@ class ContentObjects<T: Mappable>: PropertiesBase {
     
     var content: [T]?
     
-    required init?(map: Map){
+    required init?(map: Map) {
       super.init(map: map)
     }
 

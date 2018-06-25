@@ -11,7 +11,7 @@ class PropertiesBase: Mappable {
     var totalPages: Int?
     var sort: [Sort]?
     
-    required init?(map: Map){
+    required init?(map: Map) {
         
     }
     

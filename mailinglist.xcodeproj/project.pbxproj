@@ -142,7 +142,6 @@
 				C7AA3E0920D7420800A44D7E /* login */,
 				C7BC0F9920DB2F6A00F70BE2 /* role */,
 				C7BC0F8C20D9EEB500F70BE2 /* user */,
-				C7BC0FAA20DC6E5400F70BE2 /* responses */,
 				F401E75B20D9730D006D5047 /* repositories */,
 				C7AA3E1820D75C7900A44D7E /* models */,
 				F401E75420D96B3B006D5047 /* injections */,
@@ -261,37 +260,22 @@
 		C7BC0FAA20DC6E5400F70BE2 /* responses */ = {
 			isa = PBXGroup;
 			children = (
-				C7BC0FBF20E1A18F00F70BE2 /* base */,
-				C7BC0FAF20DC7EDB00F70BE2 /* role */,
-			);
-			path = responses;
-			sourceTree = "<group>";
-		};
-		C7BC0FAF20DC7EDB00F70BE2 /* role */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = role;
-			sourceTree = "<group>";
-		};
-		C7BC0FBA20DDC88100F70BE2 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				C7AA3E1D20D75E7900A44D7E /* Constants.swift */,
-				C7BC0FBB20DDD16B00F70BE2 /* Utils.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		C7BC0FBF20E1A18F00F70BE2 /* base */ = {
-			isa = PBXGroup;
-			children = (
 				C7BC0FAD20DC7E7A00F70BE2 /* ContentObjects.swift */,
 				C7BC0FB820DDC3FE00F70BE2 /* ResponseBase.swift */,
 				C7BC0FC020E1A1AB00F70BE2 /* Sort.swift */,
 				C7BC0FC220E1A8EF00F70BE2 /* PropertiesBase.swift */,
 			);
-			path = base;
+			path = responses;
+			sourceTree = "<group>";
+		};
+		C7BC0FBA20DDC88100F70BE2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C7BC0FAA20DC6E5400F70BE2 /* responses */,
+				C7AA3E1D20D75E7900A44D7E /* Constants.swift */,
+				C7BC0FBB20DDD16B00F70BE2 /* Utils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		F401E75420D96B3B006D5047 /* injections */ = {
