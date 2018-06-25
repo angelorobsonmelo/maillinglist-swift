@@ -33,7 +33,7 @@
 		C7BC0FA520DB37DF00F70BE2 /* RoleRemoteRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FA420DB37DF00F70BE2 /* RoleRemoteRepositoryImpl.swift */; };
 		C7BC0FA720DB453D00F70BE2 /* RoleContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FA620DB453D00F70BE2 /* RoleContract.swift */; };
 		C7BC0FA920DB4DF900F70BE2 /* RolePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FA820DB4DF900F70BE2 /* RolePresenter.swift */; };
-		C7BC0FAE20DC7E7A00F70BE2 /* RolesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FAD20DC7E7A00F70BE2 /* RolesResponse.swift */; };
+		C7BC0FAE20DC7E7A00F70BE2 /* ContentObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FAD20DC7E7A00F70BE2 /* ContentObjects.swift */; };
 		C7BC0FB720DDBC6C00F70BE2 /* saveRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FB620DDBC6C00F70BE2 /* saveRole.swift */; };
 		C7BC0FB920DDC3FE00F70BE2 /* ResponseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FB820DDC3FE00F70BE2 /* ResponseBase.swift */; };
 		C7BC0FBC20DDD16B00F70BE2 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FBB20DDD16B00F70BE2 /* Utils.swift */; };
@@ -75,7 +75,7 @@
 		C7BC0FA420DB37DF00F70BE2 /* RoleRemoteRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleRemoteRepositoryImpl.swift; sourceTree = "<group>"; };
 		C7BC0FA620DB453D00F70BE2 /* RoleContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleContract.swift; sourceTree = "<group>"; };
 		C7BC0FA820DB4DF900F70BE2 /* RolePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePresenter.swift; sourceTree = "<group>"; };
-		C7BC0FAD20DC7E7A00F70BE2 /* RolesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolesResponse.swift; sourceTree = "<group>"; };
+		C7BC0FAD20DC7E7A00F70BE2 /* ContentObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentObjects.swift; sourceTree = "<group>"; };
 		C7BC0FB620DDBC6C00F70BE2 /* saveRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saveRole.swift; sourceTree = "<group>"; };
 		C7BC0FB820DDC3FE00F70BE2 /* ResponseBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseBase.swift; sourceTree = "<group>"; };
 		C7BC0FBB20DDD16B00F70BE2 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -270,7 +270,6 @@
 		C7BC0FAF20DC7EDB00F70BE2 /* role */ = {
 			isa = PBXGroup;
 			children = (
-				C7BC0FAD20DC7E7A00F70BE2 /* RolesResponse.swift */,
 			);
 			path = role;
 			sourceTree = "<group>";
@@ -287,6 +286,7 @@
 		C7BC0FBF20E1A18F00F70BE2 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				C7BC0FAD20DC7E7A00F70BE2 /* ContentObjects.swift */,
 				C7BC0FB820DDC3FE00F70BE2 /* ResponseBase.swift */,
 				C7BC0FC020E1A1AB00F70BE2 /* Sort.swift */,
 				C7BC0FC220E1A8EF00F70BE2 /* PropertiesBase.swift */,
@@ -444,7 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7BC0FAE20DC7E7A00F70BE2 /* RolesResponse.swift in Sources */,
+				C7BC0FAE20DC7E7A00F70BE2 /* ContentObjects.swift in Sources */,
 				C7AA3E0B20D742A100A44D7E /* LoginPresenter.swift in Sources */,
 				C7BC0FC120E1A1AB00F70BE2 /* Sort.swift in Sources */,
 				C7BC0FA320DB319400F70BE2 /* Role.swift in Sources */,

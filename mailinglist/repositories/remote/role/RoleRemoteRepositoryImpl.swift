@@ -22,7 +22,7 @@ public class RoleRemoteRepositoryImpl: RoleRemoteRepository {
     
     public func getRoles(onSuccess: @escaping ([Role?]) -> Void, onEmpty: @escaping () -> Void, onError: @escaping ([String]) -> Void) {
         
-        Alamofire.request(self.roleUrl, headers: self.headers).responseObject { (response: DataResponse<ResponseBase<DataRoles>>) in
+        Alamofire.request(self.roleUrl, headers: self.headers).responseObject { (response: DataResponse<ResponseBase<ContentObjects<Role>>>) in
             switch response.result {
             case .success:
                 if let roleResponse = response.result.value?.data?.content {

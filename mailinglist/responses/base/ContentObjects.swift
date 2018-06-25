@@ -1,9 +1,9 @@
 import ObjectMapper
 import Foundation
 
-class DataRoles: PropertiesBase {
+class ContentObjects<T: Mappable>: PropertiesBase {
     
-    var content: [Role]?
+    var content: [T]?
     
     required init?(map: Map){
       super.init(map: map)
