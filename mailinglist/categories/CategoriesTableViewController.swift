@@ -1,7 +1,15 @@
+//
+//  CategoriesTableViewController.swift
+//  mailinglist
+//
+//  Created by stant on 25/06/18.
+//  Copyright © 2018 angelorobson. All rights reserved.
+//
+
 import UIKit
 
-class RoleTableViewController: UITableViewController, RoleViewContract {
-  
+class CategoriesTableViewController: UITableViewController, CategoryViewContract {
+    
     var label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -9,14 +17,14 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
         return label
     }()
     
-    lazy var presenter: RolePresenterContract = {
-        return RolePresenter(view: self, getRoles: InjectionUseCase.provideGetRoles(), saveRole: InjectionUseCase.provideSaveRole(), deleteRole: InjectionUseCase.provideDeleteRole())
+    lazy var presenter: CategoryPresenterContract = {
+        return CategoryPresenter(view: self, getCategories: InjectionUseCase.provideGetCategories(), saveCategory: InjectionUseCase.provideSaveCategory(), deleteCategory: InjectionUseCase.provideDeleteCategory())
     }()
     
-    var roles: [Role] = []
+    var categories: [Category] = []
     var id: Int?
     var isEdited = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -25,60 +33,59 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
         label.text = "Please, wait..."
-        presenter.getRoles()
+        presenter.getCategories()
     }
     
     func showError(error: [String]) {
         print(error)
     }
     
-    func showRoles(roles: [Role]) {
-            self.roles = roles
-            self.tableView.reloadData()
+    func showCategories(categories: [Category]) {
+        self.categories = categories
+        self.tableView.reloadData()
     }
-
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tableView.backgroundView = roles.count == 0 ? label : nil
-        return roles.count
+        tableView.backgroundView = categories.count == 0 ? label : nil
+        return categories.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-   
-        cell.textLabel?.text = roles[indexPath.row].function
+        
+        cell.textLabel?.text = categories[indexPath.row].category
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let role = self.roles[indexPath.row]
-        showAlertForm(with: role)
+        let category = self.categories[indexPath.row]
+        showAlertForm(with: category)
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
-    @IBAction func addRole(_ sender: UIBarButtonItem) {
+    @IBAction func addCategory(_ sender: UIBarButtonItem) {
         showAlertForm(with: nil)
     }
     
-    func showAlertForm(with role: Role?) {
-        let title = role == nil ? "Add" : "Edit"
-        let alert = UIAlertController(title: title + " Role", message: nil, preferredStyle: .alert)
+    func showAlertForm(with category: Category?) {
+        let title = category == nil ? "Add" : "Edit"
+        let alert = UIAlertController(title: title + " Category", message: nil, preferredStyle: .alert)
         
         alert.addTextField { (textField) in
             textField.clearButtonMode = .whileEditing
             textField.autocapitalizationType = .sentences
-            textField.placeholder = "Role"
+            textField.placeholder = "Category"
             textField.returnKeyType = .done
-            if let id = role?.id {
-                textField.text = role?.function!
+            if let id = category?.id {
+                textField.text = category?.category!
                 self.id = id
             }
         }
         
         alert.addAction(UIAlertAction(title: title, style: .default, handler: { (action) in
-            let function = alert.textFields?.first?.text
-            self.saveRole(function: function!)
+            let category = alert.textFields?.first?.text
+            self.saveRole(category: category!)
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -86,40 +93,40 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
         present(alert, animated: true, completion: nil)
     }
     
-    private func saveRole(function: String) {
-        var role = Role(function: function)
+    private func saveRole(category: String) {
+        var categoryObj = Category(category: category)
         
         if let id = self.id {
             self.id = id
             self.isEdited = true
-            role = Role(id: id, function: function)
+            categoryObj = Category(id: id, category: category)
             self.id = nil
         }
         
-        self.presenter.saveRole(role: role)
+        self.presenter.saveCategory(category: categoryObj)
     }
     
-    func showRole(role: Role) {
+    func showCategory(category: Category) {
         if self.isEdited {
-            updateItem(updatedItem: role)
+            updateItem(updatedItem: category)
             self.isEdited = false
             return
         }
         
-        self.roles.append(role)
-    
-        let indexPath = IndexPath(row: self.roles.count - 1, section: 0)
+        self.categories.append(category)
+        
+        let indexPath = IndexPath(row: self.categories.count - 1, section: 0)
         
         tableView.beginUpdates()
         tableView.insertRows(at: [indexPath], with: .fade)
         tableView.endUpdates()
         
-        presenter.getRoles()
+        presenter.getCategories()
     }
     
-    func updateItem(updatedItem: Role)  {
-         let index = self.roles.index(where: { $0.id == updatedItem.id })
-         self.roles[index!] = updatedItem
+    func updateItem(updatedItem: Category)  {
+        let index = self.categories.index(where: { $0.id == updatedItem.id })
+        self.categories[index!] = updatedItem
         
         let indexPath = IndexPath(item: index!, section: 0)
         tableView.beginUpdates()
@@ -128,11 +135,11 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-         let role = self.roles[indexPath.row]
+        let category = self.categories[indexPath.row]
         
         if editingStyle == .delete {
-            self.roles.remove(at: indexPath.row)
-            self.presenter.deleteRole(role: role)
+            self.categories.remove(at: indexPath.row)
+            self.presenter.deleteCategory(category: category)
             
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.beginUpdates()
@@ -140,11 +147,9 @@ class RoleTableViewController: UITableViewController, RoleViewContract {
         }
     }
     
-    func deleteRole(isSuccess: Bool) {
+    func deleteCategory(isSuccess: Bool) {
         print(isSuccess)
     }
- 
-
-
+    
 
 }

@@ -40,6 +40,15 @@
 		C7BC0FBE20DDEEB700F70BE2 /* DeleteRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FBD20DDEEB700F70BE2 /* DeleteRole.swift */; };
 		C7BC0FC120E1A1AB00F70BE2 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FC020E1A1AB00F70BE2 /* Sort.swift */; };
 		C7BC0FC320E1A8EF00F70BE2 /* PropertiesBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BC0FC220E1A8EF00F70BE2 /* PropertiesBase.swift */; };
+		C7C176F820E1B9A700520782 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C176F720E1B9A700520782 /* CategoriesTableViewController.swift */; };
+		C7C176FB20E1BC3E00520782 /* GetCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C176FA20E1BC3E00520782 /* GetCategories.swift */; };
+		C7C176FD20E1BC4800520782 /* SaveCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C176FC20E1BC4800520782 /* SaveCategory.swift */; };
+		C7C176FF20E1BC5200520782 /* DeleteCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C176FE20E1BC5200520782 /* DeleteCategory.swift */; };
+		C7C1770120E1BCCA00520782 /* CategoryContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C1770020E1BCCA00520782 /* CategoryContract.swift */; };
+		C7C1770320E1BCD300520782 /* CategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C1770220E1BCD300520782 /* CategoryPresenter.swift */; };
+		C7C1770620E1BD2B00520782 /* CategoryRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C1770520E1BD2B00520782 /* CategoryRemoteRepository.swift */; };
+		C7C1770820E1BD4500520782 /* CategoryRemoteRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C1770720E1BD4500520782 /* CategoryRemoteRepositoryImpl.swift */; };
+		C7C1770A20E1BDC100520782 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C1770920E1BDC100520782 /* Category.swift */; };
 		F401E75620D96B52006D5047 /* InjectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75520D96B52006D5047 /* InjectionUseCase.swift */; };
 		F401E75820D96C6B006D5047 /* InjectionRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75720D96C6B006D5047 /* InjectionRemoteRepository.swift */; };
 		F401E75E20D973C9006D5047 /* LoginRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75D20D973C9006D5047 /* LoginRemoteRepository.swift */; };
@@ -82,6 +91,15 @@
 		C7BC0FBD20DDEEB700F70BE2 /* DeleteRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRole.swift; sourceTree = "<group>"; };
 		C7BC0FC020E1A1AB00F70BE2 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		C7BC0FC220E1A8EF00F70BE2 /* PropertiesBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesBase.swift; sourceTree = "<group>"; };
+		C7C176F720E1B9A700520782 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
+		C7C176FA20E1BC3E00520782 /* GetCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCategories.swift; sourceTree = "<group>"; };
+		C7C176FC20E1BC4800520782 /* SaveCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCategory.swift; sourceTree = "<group>"; };
+		C7C176FE20E1BC5200520782 /* DeleteCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCategory.swift; sourceTree = "<group>"; };
+		C7C1770020E1BCCA00520782 /* CategoryContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContract.swift; sourceTree = "<group>"; };
+		C7C1770220E1BCD300520782 /* CategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPresenter.swift; sourceTree = "<group>"; };
+		C7C1770520E1BD2B00520782 /* CategoryRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRemoteRepository.swift; sourceTree = "<group>"; };
+		C7C1770720E1BD4500520782 /* CategoryRemoteRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRemoteRepositoryImpl.swift; sourceTree = "<group>"; };
+		C7C1770920E1BDC100520782 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		D0EAD410BA1E024D31E0D552 /* Pods-mailinglist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mailinglist.release.xcconfig"; path = "Pods/Target Support Files/Pods-mailinglist/Pods-mailinglist.release.xcconfig"; sourceTree = "<group>"; };
 		F401E75520D96B52006D5047 /* InjectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionUseCase.swift; sourceTree = "<group>"; };
 		F401E75720D96C6B006D5047 /* InjectionRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionRemoteRepository.swift; sourceTree = "<group>"; };
@@ -138,9 +156,10 @@
 		C7AA3DED20D6F43800A44D7E /* mailinglist */ = {
 			isa = PBXGroup;
 			children = (
+				C7BC0F9920DB2F6A00F70BE2 /* role */,
+				C7C176F620E1B98600520782 /* categories */,
 				C7BC0FBA20DDC88100F70BE2 /* Utils */,
 				C7AA3E0920D7420800A44D7E /* login */,
-				C7BC0F9920DB2F6A00F70BE2 /* role */,
 				C7BC0F8C20D9EEB500F70BE2 /* user */,
 				F401E75B20D9730D006D5047 /* repositories */,
 				C7AA3E1820D75C7900A44D7E /* models */,
@@ -180,6 +199,7 @@
 			children = (
 				C7AA3E1920D75C8300A44D7E /* Auth.swift */,
 				C7BC0FA220DB319400F70BE2 /* Role.swift */,
+				C7C1770920E1BDC100520782 /* Category.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -187,6 +207,7 @@
 		C7BC0F8A20D9EE5900F70BE2 /* remote */ = {
 			isa = PBXGroup;
 			children = (
+				C7C1770420E1BD1400520782 /* category */,
 				C7BC0F9F20DB2FF100F70BE2 /* role */,
 				F401E75C20D9731E006D5047 /* login */,
 			);
@@ -276,6 +297,36 @@
 				C7BC0FBB20DDD16B00F70BE2 /* Utils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		C7C176F620E1B98600520782 /* categories */ = {
+			isa = PBXGroup;
+			children = (
+				C7C176F920E1BC2D00520782 /* usecases */,
+				C7C1770020E1BCCA00520782 /* CategoryContract.swift */,
+				C7C1770220E1BCD300520782 /* CategoryPresenter.swift */,
+				C7C176F720E1B9A700520782 /* CategoriesTableViewController.swift */,
+			);
+			path = categories;
+			sourceTree = "<group>";
+		};
+		C7C176F920E1BC2D00520782 /* usecases */ = {
+			isa = PBXGroup;
+			children = (
+				C7C176FA20E1BC3E00520782 /* GetCategories.swift */,
+				C7C176FC20E1BC4800520782 /* SaveCategory.swift */,
+				C7C176FE20E1BC5200520782 /* DeleteCategory.swift */,
+			);
+			path = usecases;
+			sourceTree = "<group>";
+		};
+		C7C1770420E1BD1400520782 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				C7C1770520E1BD2B00520782 /* CategoryRemoteRepository.swift */,
+				C7C1770720E1BD4500520782 /* CategoryRemoteRepositoryImpl.swift */,
+			);
+			path = category;
 			sourceTree = "<group>";
 		};
 		F401E75420D96B3B006D5047 /* injections */ = {
@@ -432,12 +483,16 @@
 				C7AA3E0B20D742A100A44D7E /* LoginPresenter.swift in Sources */,
 				C7BC0FC120E1A1AB00F70BE2 /* Sort.swift in Sources */,
 				C7BC0FA320DB319400F70BE2 /* Role.swift in Sources */,
+				C7C176FB20E1BC3E00520782 /* GetCategories.swift in Sources */,
 				C7AA3E0420D6F60500A44D7E /* LoginViewController.swift in Sources */,
 				C7BC0FBC20DDD16B00F70BE2 /* Utils.swift in Sources */,
 				C7AA3E0F20D74BFF00A44D7E /* GetAuth.swift in Sources */,
+				C7C1770120E1BCCA00520782 /* CategoryContract.swift in Sources */,
+				C7C1770A20E1BDC100520782 /* Category.swift in Sources */,
 				C7BC0F9820DA09E000F70BE2 /* GetUser.swift in Sources */,
 				C7BC0FA720DB453D00F70BE2 /* RoleContract.swift in Sources */,
 				C7AA3E1C20D75CE800A44D7E /* LoginRemoteRepositoryImpl.swift in Sources */,
+				C7C176FD20E1BC4800520782 /* SaveCategory.swift in Sources */,
 				C7BC0F9420D9EF7400F70BE2 /* UserLocalRepositoryImpl.swift in Sources */,
 				C7AA3DF720D6F43800A44D7E /* mailinglist.xcdatamodeld in Sources */,
 				C7AA3E1A20D75C8300A44D7E /* Auth.swift in Sources */,
@@ -447,6 +502,7 @@
 				C7BC0F9E20DB2FC400F70BE2 /* GetRoles.swift in Sources */,
 				C7BC0F9620D9F59F00F70BE2 /* InjectionLocalRepository.swift in Sources */,
 				C7BC0F8F20D9EEE300F70BE2 /* SaveUser.swift in Sources */,
+				C7C1770620E1BD2B00520782 /* CategoryRemoteRepository.swift in Sources */,
 				C7BC0FA920DB4DF900F70BE2 /* RolePresenter.swift in Sources */,
 				C7BC0FA520DB37DF00F70BE2 /* RoleRemoteRepositoryImpl.swift in Sources */,
 				F401E75820D96C6B006D5047 /* InjectionRemoteRepository.swift in Sources */,
@@ -455,9 +511,13 @@
 				C7AA3E0D20D7443500A44D7E /* LoginContract.swift in Sources */,
 				C7AA3E1E20D75E7900A44D7E /* Constants.swift in Sources */,
 				C7BC0FB720DDBC6C00F70BE2 /* saveRole.swift in Sources */,
+				C7C176F820E1B9A700520782 /* CategoriesTableViewController.swift in Sources */,
 				C7BC0F8920D9EC8D00F70BE2 /* ViewController+CoreData.swift in Sources */,
+				C7C1770320E1BCD300520782 /* CategoryPresenter.swift in Sources */,
 				F401E75620D96B52006D5047 /* InjectionUseCase.swift in Sources */,
+				C7C176FF20E1BC5200520782 /* DeleteCategory.swift in Sources */,
 				C7BC0FB920DDC3FE00F70BE2 /* ResponseBase.swift in Sources */,
+				C7C1770820E1BD4500520782 /* CategoryRemoteRepositoryImpl.swift in Sources */,
 				C7BC0F9220D9EF3200F70BE2 /* UserLocalRepository.swift in Sources */,
 				F401E75E20D973C9006D5047 /* LoginRemoteRepository.swift in Sources */,
 			);

@@ -10,5 +10,9 @@ class InjectionRemoteRepository {
     class func provideRoleRemoteRepository() -> RoleRemoteRepository {
         return RoleRemoteRepositoryImpl.getInstance()
     }
+    
+    class func provideCategoryRemoteRepository() -> CategoryRemoteRepository {
+      return CategoryRemoteRepositoryImpl.getInstance()
+    }
 
 }

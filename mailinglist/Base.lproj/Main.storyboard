@@ -31,6 +31,7 @@
                                         </state>
                                         <connections>
                                             <action selector="login:" destination="FVO-dh-mDT" eventType="touchUpInside" id="qdv-My-XKG"/>
+                                            <segue destination="dgf-ew-Ig5" kind="show" identifier="categoriesSegue" id="mf9-gR-duW"/>
                                         </connections>
                                     </button>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ojh-KJ-bcb">
@@ -110,7 +111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLJ-kF-YIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-114" y="-17"/>
+            <point key="canvasLocation" x="-41" y="-67"/>
         </scene>
         <!--Roles-->
         <scene sceneID="Wi4-73-n5X">
@@ -171,6 +172,9 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="main"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -184,11 +188,81 @@
             </objects>
             <point key="canvasLocation" x="836" y="-18.440779610194905"/>
         </scene>
+        <!--Categories-->
+        <scene sceneID="ezE-Ov-7Ip">
+            <objects>
+                <tableViewController id="kQU-Kg-bgO" customClass="CategoriesTableViewController" customModule="mailinglist" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CvO-gk-ZsI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="p3A-VK-PLz">
+                            <rect key="frame" x="0.0" y="72" width="375" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="dTh-33-Jx7" style="IBUITableViewCellStyleDefault" id="N3J-gQ-7j9">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N3J-gQ-7j9" id="c6u-YK-vQb">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dTh-33-Jx7">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kQU-Kg-bgO" id="bTq-Ip-sJU"/>
+                            <outlet property="delegate" destination="kQU-Kg-bgO" id="drr-ob-eG2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Categories" largeTitleDisplayMode="always" id="Y6o-SQ-nqk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="E83-zf-wc5">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addCategory:" destination="kQU-Kg-bgO" id="2Kw-7p-XjA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lHV-C6-Ryy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1538" y="-40"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VIf-JZ-45G">
+            <objects>
+                <navigationController id="dgf-ew-Ig5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="6G6-Rm-udr">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.68235294120000001" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="kQU-Kg-bgO" kind="relationship" relationship="rootViewController" id="yL1-i4-b8F"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GBd-XZ-6Sh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-801" y="-40"/>
+        </scene>
     </scenes>
     <resources>
-        <namedColor name="main">
-            <color red="0.0" green="0.68199998140335083" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="main">
             <color red="0.0" green="0.68199998140335083" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
