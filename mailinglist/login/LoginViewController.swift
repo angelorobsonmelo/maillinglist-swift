@@ -43,7 +43,7 @@ class LoginViewController: UIViewController, LoginViewContract {
     
     func userLogged(isLogged: Bool) {
         if isLogged {
-            self.performSegue(withIdentifier: "categoriesSegue", sender: self)
+            self.performSegue(withIdentifier: "segueContacts", sender: self)
         }
     }
         

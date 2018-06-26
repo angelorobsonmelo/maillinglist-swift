@@ -7,7 +7,7 @@ import AlamofireObjectMapper
 public class CategoryRemoteRepositoryImpl: CategoryRemoteRepository {
  
     private let jsonEncoder = JSONEncoder()
-    private let roleUrl = "\(Constants.baseUrl)/categories"
+    private let categoryUrl = "\(Constants.baseUrl)/categories"
     let headers = Utils.getHeadersWithJwtToken()
     
     private static var INSTANCE: CategoryRemoteRepository?
@@ -21,17 +21,16 @@ public class CategoryRemoteRepositoryImpl: CategoryRemoteRepository {
     }
     
     public func getCategories(onSuccess: @escaping ([Category?]) -> Void, onEmpty: @escaping () -> Void, onError: @escaping ([String]) -> Void) {
-        
-        Alamofire.request(self.roleUrl, headers: self.headers).responseObject { (response: DataResponse<ResponseBase<ContentObjects<Category>>>) in
+        Alamofire.request(self.categoryUrl, headers: self.headers).responseObject { (response: DataResponse<ResponseBase<ContentObjects<Category>>>) in
             switch response.result {
             case .success:
-                if let roleResponse = response.result.value?.data?.content {
-                    if roleResponse.isEmpty {
+                if let categoryResponse = response.result.value?.data?.content {
+                    if categoryResponse.isEmpty {
                         onEmpty()
                         return
                     }
                     
-                    onSuccess(roleResponse)
+                    onSuccess(categoryResponse)
                 }
             case .failure(let error):
                 onError(response.result.value?.errors ?? [error.localizedDescription])
@@ -53,13 +52,13 @@ public class CategoryRemoteRepositoryImpl: CategoryRemoteRepository {
         Alamofire.request(request).responseObject { (response: DataResponse<ResponseBase<Category>>) in
             switch response.result {
             case .success:
-                if let roleResponse = response.result.value?.data {
-                    if roleResponse.id == nil {
+                if let categoryResponse = response.result.value?.data {
+                    if categoryResponse.id == nil {
                         onEmpty()
                         return
                     }
                     
-                    onSuccess(roleResponse)
+                    onSuccess(categoryResponse)
                 }
             case .failure(let error):
                 onError(response.result.value?.errors ?? [error.localizedDescription])

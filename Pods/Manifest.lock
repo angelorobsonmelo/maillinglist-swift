@@ -4,7 +4,7 @@ PODS:
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 3.0)
   - JWTDecode (2.1.1)
-  - ObjectMapper (3.2.0)
+  - ObjectMapper (3.1.0)
   - SwiftKeychainWrapper (3.0.1)
   - SwiftValidator (4.0.0)
 
@@ -37,7 +37,7 @@ SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
   JWTDecode: 83e8b381aafe27158d9f692cbdca2b12d61d460c
-  ObjectMapper: 5cccd2de6f253eda859df8116a5a554d9769e859
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
 

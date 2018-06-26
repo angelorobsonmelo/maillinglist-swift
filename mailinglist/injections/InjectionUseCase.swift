@@ -7,6 +7,7 @@ class InjectionUseCase {
     private static let userLocalRepository = InjectionLocalRepository.provideUserLocalRespository()
     private static let roleRemoteRepository = InjectionRemoteRepository.provideRoleRemoteRepository()
     private static let categoryRepository = InjectionRemoteRepository.provideCategoryRemoteRepository()
+    private static let contactRepository = InjectionRemoteRepository.provideContactRemoteRepository()
     
     class func provideGetAuth() -> GetAuth {
         return GetAuth(loginRemoteRepository: loginRemoteRepository)
@@ -42,5 +43,9 @@ class InjectionUseCase {
     
     class func provideDeleteCategory() -> DeleteCategory {
         return DeleteCategory(categoryRemoteRepository: categoryRepository)
+    }
+    
+    class func provideGetContacts() -> getContacts {
+        return getContacts(contactRemoteRepository: contactRepository)
     }
 }
