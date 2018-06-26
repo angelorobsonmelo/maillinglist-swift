@@ -52,6 +52,7 @@
 		F401E75620D96B52006D5047 /* InjectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75520D96B52006D5047 /* InjectionUseCase.swift */; };
 		F401E75820D96C6B006D5047 /* InjectionRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75720D96C6B006D5047 /* InjectionRemoteRepository.swift */; };
 		F401E75E20D973C9006D5047 /* LoginRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75D20D973C9006D5047 /* LoginRemoteRepository.swift */; };
+		F41340AB20E2CBBD003335F3 /* ContactFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41340AA20E2CBBD003335F3 /* ContactFilter.swift */; };
 		F4B4DA9820E29B490059E587 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4DA9720E29B490059E587 /* Contact.swift */; };
 		F4B4DA9B20E29D8E0059E587 /* ContactRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4DA9A20E29D8E0059E587 /* ContactRemoteRepository.swift */; };
 		F4B4DA9D20E29E890059E587 /* ContactRemoteRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4DA9C20E29E890059E587 /* ContactRemoteRepositoryImpl.swift */; };
@@ -112,6 +113,7 @@
 		F401E75520D96B52006D5047 /* InjectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionUseCase.swift; sourceTree = "<group>"; };
 		F401E75720D96C6B006D5047 /* InjectionRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionRemoteRepository.swift; sourceTree = "<group>"; };
 		F401E75D20D973C9006D5047 /* LoginRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRemoteRepository.swift; sourceTree = "<group>"; };
+		F41340AA20E2CBBD003335F3 /* ContactFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactFilter.swift; sourceTree = "<group>"; };
 		F4B4DA9720E29B490059E587 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		F4B4DA9A20E29D8E0059E587 /* ContactRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRemoteRepository.swift; sourceTree = "<group>"; };
 		F4B4DA9C20E29E890059E587 /* ContactRemoteRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRemoteRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -195,7 +197,7 @@
 		C7AA3E0920D7420800A44D7E /* login */ = {
 			isa = PBXGroup;
 			children = (
-				C7AA3E1020D74D1B00A44D7E /* usecases */,
+				F41340A820E2CA9F003335F3 /* domain */,
 				C7AA3E0320D6F60500A44D7E /* LoginViewController.swift */,
 				C7AA3E0A20D742A100A44D7E /* LoginPresenter.swift */,
 				C7AA3E0C20D7443500A44D7E /* LoginContract.swift */,
@@ -270,7 +272,7 @@
 		C7BC0F9920DB2F6A00F70BE2 /* role */ = {
 			isa = PBXGroup;
 			children = (
-				C7BC0F9A20DB2F8000F70BE2 /* usecases */,
+				F41340A620E2CA87003335F3 /* domain */,
 				C7BC0F9B20DB2F9D00F70BE2 /* RoleTableViewController.swift */,
 				C7BC0FA620DB453D00F70BE2 /* RoleContract.swift */,
 				C7BC0FA820DB4DF900F70BE2 /* RolePresenter.swift */,
@@ -321,7 +323,7 @@
 		C7C176F620E1B98600520782 /* categories */ = {
 			isa = PBXGroup;
 			children = (
-				C7C176F920E1BC2D00520782 /* usecases */,
+				F41340A720E2CA93003335F3 /* domain */,
 				C7C1770020E1BCCA00520782 /* CategoryContract.swift */,
 				C7C1770220E1BCD300520782 /* CategoryPresenter.swift */,
 				C7C176F720E1B9A700520782 /* CategoriesTableViewController.swift */,
@@ -376,6 +378,47 @@
 			path = login;
 			sourceTree = "<group>";
 		};
+		F41340A520E2CA75003335F3 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				F41340A920E2CAD1003335F3 /* filter */,
+				F4B4DA9F20E2A05B0059E587 /* usecases */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		F41340A620E2CA87003335F3 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				C7BC0F9A20DB2F8000F70BE2 /* usecases */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		F41340A720E2CA93003335F3 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				C7C176F920E1BC2D00520782 /* usecases */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		F41340A820E2CA9F003335F3 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				C7AA3E1020D74D1B00A44D7E /* usecases */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		F41340A920E2CAD1003335F3 /* filter */ = {
+			isa = PBXGroup;
+			children = (
+				F41340AA20E2CBBD003335F3 /* ContactFilter.swift */,
+			);
+			path = filter;
+			sourceTree = "<group>";
+		};
 		F4B4DA9920E29D7C0059E587 /* contact */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,7 +431,7 @@
 		F4B4DA9E20E2A0500059E587 /* contact */ = {
 			isa = PBXGroup;
 			children = (
-				F4B4DA9F20E2A05B0059E587 /* usecases */,
+				F41340A520E2CA75003335F3 /* domain */,
 				F4B4DAA220E2A17F0059E587 /* ContactTableViewCell.swift */,
 				F4B4DAA420E2A1B50059E587 /* ContactTableViewController.swift */,
 				F4B4DAA620E2A1E00059E587 /* ContactPresenter.swift */,
@@ -557,6 +600,7 @@
 				C7BC0FA920DB4DF900F70BE2 /* RolePresenter.swift in Sources */,
 				C7BC0FA520DB37DF00F70BE2 /* RoleRemoteRepositoryImpl.swift in Sources */,
 				F401E75820D96C6B006D5047 /* InjectionRemoteRepository.swift in Sources */,
+				F41340AB20E2CBBD003335F3 /* ContactFilter.swift in Sources */,
 				C7BC0FA120DB303F00F70BE2 /* RoleRemoteRepository.swift in Sources */,
 				C7BC0FC320E1A8EF00F70BE2 /* PropertiesBase.swift in Sources */,
 				C7AA3E0D20D7443500A44D7E /* LoginContract.swift in Sources */,

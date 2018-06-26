@@ -8,8 +8,8 @@ class getContacts {
         self.contactRemoteRepository = contactRemoteRepository
     }
     
-    func getContacts(onSuccess: @escaping ([Contact?]) -> Void, onEmpty: @escaping () -> Void, onError: @escaping ([String]) -> Void) {
-        self.contactRemoteRepository.getContacts(onSuccess: { (contacts) in
+    func getContacts(contactFilter: ContactFilter, onSuccess: @escaping ([Contact?]) -> Void, onEmpty: @escaping () -> Void, onError: @escaping ([String]) -> Void) {
+        self.contactRemoteRepository.getContacts(contactFilter: contactFilter, onSuccess: { (contacts) in
             onSuccess(contacts)
         }, onEmpty: {
             onEmpty()

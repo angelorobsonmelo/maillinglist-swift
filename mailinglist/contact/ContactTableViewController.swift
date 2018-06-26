@@ -33,7 +33,9 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
         label.text = "Please, wait..."
-        presenter.getContacts()
+        let contactFilter = ContactFilter()
+        
+        presenter.getContacts(contactFilter: contactFilter)
     }
     
     func showContracts(contracts: [Contact?]) {
@@ -57,16 +59,9 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        tableView.backgroundView = contacts.count == 0 ? label : nil
+        return contacts.count
     }
 
     /*
