@@ -12,7 +12,7 @@ class ContactPresenter: ContactPresenterContract {
     
     func getContacts(contactFilter: ContactFilter, page: Int = 0, perPage: Int = 25) {
         getContactsUseCase.getContacts(contactFilter: contactFilter, page: page, perPage: perPage, onSuccess: { (contacts) in
-            self.view.showContracts(contracts: contacts)
+            self.view.showContacts(contacts: contacts)
         }, onEmpty: {
             
         }) { (error) in

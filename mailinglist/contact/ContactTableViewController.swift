@@ -38,15 +38,16 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
         presenter.getContacts(contactFilter: contactFilter)
     }
     
-    func showContracts(contracts: [Contact?]) {
-        print(contracts)
+    func showContacts(contacts: [Contact?]) {
+        self.contacts = contacts as! [Contact]
+        self.tableView.reloadData()
     }
     
     func showError(error: [String]) {
         
     }
     
-    func showContract(contract: Contact) {
+    func showContact(contact: Contact) {
         
     }
     
@@ -64,15 +65,16 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
         return contacts.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ContactTableViewCell
+        
+        let contact = contacts[indexPath.row]
+        cell.populateCell(with: contact)
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

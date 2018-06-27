@@ -2,8 +2,8 @@ import Foundation
 
 protocol ContactViewContract {
     func showError(error: [String]) -> Void
-    func showContracts(contracts: [Contact?]) -> Void
-    func showContract(contract: Contact) -> Void
+    func showContacts(contacts: [Contact?]) -> Void
+    func showContact(contact: Contact) -> Void
     func deleteContract(isSuccess: Bool)
 }
 

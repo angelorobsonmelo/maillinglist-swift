@@ -9,7 +9,12 @@
 import UIKit
 
 class ContactTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var lbInstagram: UILabel!
+    @IBOutlet weak var lbCategory: UILabel!
+    @IBOutlet weak var lbGender: UILabel!
+    @IBOutlet weak var lbRoles: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +24,10 @@ class ContactTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func populateCell(with contact: Contact) {
+        
     }
 
 }
