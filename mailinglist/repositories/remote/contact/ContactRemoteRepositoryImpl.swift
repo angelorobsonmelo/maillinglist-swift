@@ -5,10 +5,10 @@ import ObjectMapper
 import AlamofireObjectMapper
 
 public class ContactRemoteRepositoryImpl: ContactRemoteRepository {
-    
+
     private let jsonEncoder = JSONEncoder()
-    private let contactUrl = "\(Constants.baseUrl)/contacts/filter?pag=0&perPage=25"
-    let headers = Utils.getHeadersWithJwtToken()
+    private var contactUrl = "\(Constants.baseUrl)/contacts"
+//    let headers = Utils.getHeadersWithJwtToken()
     
     private static var INSTANCE: ContactRemoteRepository?
     
@@ -20,8 +20,9 @@ public class ContactRemoteRepositoryImpl: ContactRemoteRepository {
         return INSTANCE!
     }
     
-    public func getContacts(contactFilter: ContactFilter, onSuccess: @escaping ([Contact]) -> Void, onEmpty: @escaping () -> Void, onError: @escaping ([String]) -> Void) {
-        let request = Utils.getRequest(object: contactFilter, url: contactUrl, method: HTTPMethod.post.rawValue)
+    public func getContacts(contactFilter: ContactFilter, page: Int, perPage: Int, onSuccess: @escaping ([Contact]) -> Void, onEmpty: @escaping () -> Void, onError: @escaping ([String]) -> Void) {
+        let url = "contacts/filter?pag=\(page)&perPage=\(perPage)"
+        let request = Utils.getRequest(object: contactFilter, url: url , method: HTTPMethod.post.rawValue)
 
         Alamofire.request(request).responseObject { (response: DataResponse<ResponseBase<ContentObjects<Contact>>>) in
             switch response.result {

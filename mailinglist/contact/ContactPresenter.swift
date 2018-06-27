@@ -10,8 +10,8 @@ class ContactPresenter: ContactPresenterContract {
         self.getContactsUseCase = getContacts
     }
     
-    func getContacts(contactFilter: ContactFilter) {
-        getContactsUseCase.getContacts(contactFilter: contactFilter, onSuccess: { (contacts) in
+    func getContacts(contactFilter: ContactFilter, page: Int = 0, perPage: Int = 25) {
+        getContactsUseCase.getContacts(contactFilter: contactFilter, page: page, perPage: perPage, onSuccess: { (contacts) in
             self.view.showContracts(contracts: contacts)
         }, onEmpty: {
             
