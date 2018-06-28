@@ -27,6 +27,8 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 300
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +36,6 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
         navigationController?.setNavigationBarHidden(false, animated: true)
         label.text = "Please, wait..."
         let contactFilter = ContactFilter()
-        
         presenter.getContacts(contactFilter: contactFilter)
     }
     
@@ -63,6 +64,11 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.backgroundView = contacts.count == 0 ? label : nil
         return contacts.count
+    }
+    
+   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       
+        return 118
     }
 
     
