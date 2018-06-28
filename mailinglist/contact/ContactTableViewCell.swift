@@ -41,6 +41,7 @@ class ContactTableViewCell: UITableViewCell {
         
         lbRoles.text = "Some, Some, Some, Some, Some, Some, Some"
         
+        ivAvatar.layer.cornerRadius = ivAvatar.frame.size.height/2        
     }
 
 }
