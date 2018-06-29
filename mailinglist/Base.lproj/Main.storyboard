@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FVO-dh-mDT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FVO-dh-mDT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -292,18 +292,105 @@
         <!--Save Contact-->
         <scene sceneID="PGQ-al-ocH">
             <objects>
-                <viewController id="1Sb-gD-SLz" sceneMemberID="viewController">
+                <viewController id="1Sb-gD-SLz" customClass="SaveContactViewController" customModule="mailinglist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k97-RA-fUW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username instagram" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W66-IY-hrj">
+                                <rect key="frame" x="16" y="186" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="65U-Ei-OpJ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="1Sb-gD-SLz" id="4Et-Fy-IZy"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L4u-5w-cIf">
+                                <rect key="frame" x="16" y="242" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Cr2-NK-HBP"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="1Sb-gD-SLz" id="pqg-RR-OJg"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gender" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gK9-9B-BgB">
+                                <rect key="frame" x="16" y="299" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="WWp-zP-gnK"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="1Sb-gD-SLz" id="Nm3-m1-N3G"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Roles" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jvy-iE-99g">
+                                <rect key="frame" x="16" y="356" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DKQ-FQ-17i"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="1Sb-gD-SLz" id="5bO-fn-bCW"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBl-AF-HOe">
+                                <rect key="frame" x="16" y="416" width="343" height="36"/>
+                                <color key="backgroundColor" name="main"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="3tk-tX-cUG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveContact:" destination="1Sb-gD-SLz" eventType="touchUpInside" id="8W6-Hd-2O1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="L4u-5w-cIf" firstAttribute="top" secondItem="W66-IY-hrj" secondAttribute="bottom" constant="26" id="Cgg-3Q-U4p"/>
+                            <constraint firstItem="gK9-9B-BgB" firstAttribute="leading" secondItem="8vq-Fj-xyD" secondAttribute="leading" constant="16" id="DPz-Tb-4RX"/>
+                            <constraint firstItem="W66-IY-hrj" firstAttribute="top" secondItem="8vq-Fj-xyD" secondAttribute="top" constant="70" id="EkZ-yb-yum"/>
+                            <constraint firstItem="8vq-Fj-xyD" firstAttribute="trailing" secondItem="fBl-AF-HOe" secondAttribute="trailing" constant="16" id="KlX-qZ-0zn"/>
+                            <constraint firstItem="jvy-iE-99g" firstAttribute="leading" secondItem="8vq-Fj-xyD" secondAttribute="leading" constant="16" id="Mlw-pG-1uV"/>
+                            <constraint firstItem="8vq-Fj-xyD" firstAttribute="trailing" secondItem="L4u-5w-cIf" secondAttribute="trailing" constant="16" id="Nvl-NZ-CRr"/>
+                            <constraint firstItem="fBl-AF-HOe" firstAttribute="top" secondItem="jvy-iE-99g" secondAttribute="bottom" constant="30" id="TFA-r8-tXa"/>
+                            <constraint firstItem="8vq-Fj-xyD" firstAttribute="trailing" secondItem="jvy-iE-99g" secondAttribute="trailing" constant="16" id="VsK-iP-hYg"/>
+                            <constraint firstItem="jvy-iE-99g" firstAttribute="top" secondItem="gK9-9B-BgB" secondAttribute="bottom" constant="27" id="Y50-j0-JGx"/>
+                            <constraint firstItem="8vq-Fj-xyD" firstAttribute="trailing" secondItem="gK9-9B-BgB" secondAttribute="trailing" constant="16" id="Z1B-OQ-R4K"/>
+                            <constraint firstItem="fBl-AF-HOe" firstAttribute="leading" secondItem="8vq-Fj-xyD" secondAttribute="leading" constant="16" id="e0x-MR-nDd"/>
+                            <constraint firstItem="W66-IY-hrj" firstAttribute="leading" secondItem="8vq-Fj-xyD" secondAttribute="leading" constant="16" id="nrd-oI-uKM"/>
+                            <constraint firstItem="8vq-Fj-xyD" firstAttribute="trailing" secondItem="W66-IY-hrj" secondAttribute="trailing" constant="16" id="opt-Iz-SYP"/>
+                            <constraint firstItem="gK9-9B-BgB" firstAttribute="top" secondItem="L4u-5w-cIf" secondAttribute="bottom" constant="27" id="vuA-tp-92i"/>
+                            <constraint firstItem="L4u-5w-cIf" firstAttribute="leading" secondItem="8vq-Fj-xyD" secondAttribute="leading" constant="16" id="zSS-L7-8e4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="8vq-Fj-xyD"/>
                     </view>
                     <navigationItem key="navigationItem" title="Save Contact" id="uwc-24-Df6"/>
+                    <connections>
+                        <outlet property="tfCategory" destination="L4u-5w-cIf" id="YLW-Dx-9oz"/>
+                        <outlet property="tfGender" destination="gK9-9B-BgB" id="Q2v-qo-FPU"/>
+                        <outlet property="tfRoles" destination="jvy-iE-99g" id="xnF-P1-E4g"/>
+                        <outlet property="tfUsernameInstagram" destination="W66-IY-hrj" id="ib5-5I-R9O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P5c-Lh-akp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1775" y="1459"/>
+            <point key="canvasLocation" x="1773.5999999999999" y="1458.6206896551726"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cfd-t3-GQu">
