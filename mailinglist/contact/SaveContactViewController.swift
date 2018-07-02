@@ -12,12 +12,16 @@ import RSSelectionMenu
 class SaveContactViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var tfUsernameInstagram: UITextField!
-    @IBOutlet weak var tfCategory: UITextField!
-    @IBOutlet weak var tfGender: UITextField!
-    @IBOutlet weak var tfRoles: UITextField!
+    @IBOutlet weak var btSelectCategory: UIButton!
+    @IBOutlet weak var btSelectGender: UIButton!
+    @IBOutlet weak var btSelectRoles: UIButton!
+    
     
     let simpleDataArray = ["Sachin", "Rahul", "Saurav", "Virat", "Suresh", "Ravindra", "Chris", "Steve", "Anil"]
     var simpleSelectedArray = [String]()
+    
+    let genders = ["MALE", "FEMALE"]
+    var genderSelected = [String]()
     
     var firstRowSelected = true
     
@@ -30,20 +34,39 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
+        btSelectCategory.backgroundColor = .clear
+        btSelectCategory.layer.borderWidth = 0.5
+        btSelectCategory.layer.borderColor = UIColor.black.cgColor
+        
+        btSelectGender.backgroundColor = .clear
+        btSelectGender.layer.borderWidth = 0.5
+        btSelectGender.layer.borderColor = UIColor.black.cgColor
+        
+        btSelectRoles.backgroundColor = .clear
+        btSelectRoles.layer.borderWidth = 0.5
+        btSelectRoles.layer.borderColor = UIColor.black.cgColor
     }
     
+    @IBAction func showCategories(_ sender: UIButton) {
+        showAsFormSheetWithSearch()
+    }
+    
+    @IBAction func showGenders(_ sender: UIButton) {
+        showGenders()
+    }
+    
+    @IBAction func showRoles(_ sender: UIButton) {
+        presentWithMultiSelectionAndSearch()
+    }
     
     func showAsFormSheetWithSearch() {
-        
         // Show menu with datasource array - PresentationStyle = Formsheet & SearchBar
         let selectionMenu = RSSelectionMenu(dataSource: dataArray) { (cell, object, indexPath) in
             cell.textLabel?.text = object
             
             // Change tint color (if needed)
-            cell.tintColor = UIColor.blue
+            cell.tintColor = UIColor(named: "main")
         }
         
         // show selected items
@@ -53,7 +76,6 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate {
         
         // show searchbar with placeholder text and barTintColor
         // Here you'll get search text - when user types in seachbar
-        
         selectionMenu.showSearchBar(withPlaceHolder: "Search Player", tintColor: UIColor.white.withAlphaComponent(0.3)) { (searchText) -> ([String]) in
             
             // return filtered array based on any condition
@@ -62,32 +84,35 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate {
             return self.dataArray.filter({ $0.lowercased().hasPrefix(searchText.lowercased()) })
         }
         
-        // get on dismiss event with selected items
-//        selectionMenu.onDismiss = { selectedItems in
-//            self.selectedDataArray = selectedItems
-//        }
-//
-//        selectionMenu.dismiss(animated: true) {
-//            
-//        }
+        selectionMenu.show(style: .Formsheet, from: self)
+    }
+    
+    func showGenders() {
+        let selectionMenu = RSSelectionMenu(dataSource: genders) { (cell, object, indexPath) in
+            cell.textLabel?.text = object
+            cell.tintColor = UIColor(named: "main")
+        }
         
-        // show as formsheet
+        selectionMenu.setSelectedItems(items: genderSelected) { (text, selected, selectedItems) in
+            self.genderSelected = selectedItems
+            self.btSelectGender.setTitle(text, for: .normal)
+        }
+        
+        selectionMenu.showSearchBar(withPlaceHolder: "Search Gender", tintColor: UIColor.white.withAlphaComponent(0.3)) { (searchText) -> ([String]) in
+            return self.genders.filter({ $0.lowercased().hasPrefix(searchText.lowercased()) })
+        }
+        
         selectionMenu.show(style: .Formsheet, from: self)
     }
     
     func presentWithMultiSelectionAndSearch() {
         
-        // Show menu with datasource array - SelectionType = Multiple, CellType = SubTitle & SearchBar
-        
         let selectionMenu =  RSSelectionMenu(selectionType: .Multiple, dataSource: dataArray, cellType: .SubTitle) { (cell, object, indexPath) in
             
-            // set firstname in title and lastname as subTitle
+            cell.textLabel?.text = object
             
-            let firstName = object.components(separatedBy: " ").first
-            let lastName = object.components(separatedBy: " ").last
-            
-            cell.textLabel?.text = firstName
-            cell.detailTextLabel?.text = lastName
+            // Change tint color (if needed)
+            cell.tintColor = UIColor(named: "main")
         }
         
         selectionMenu.setSelectedItems(items: selectedDataArray) { (text, selected, selectedItems) in
@@ -108,84 +133,21 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate {
         }
         
         // set navigationbar theme
-        selectionMenu.setNavigationBar(title: "Select Player", attributes: nil, barTintColor: UIColor.orange.withAlphaComponent(0.5), tintColor: UIColor.white)
+        selectionMenu.setNavigationBar(title: "Select Role", attributes: nil, barTintColor: UIColor.init(named: ("main")), tintColor: UIColor.white)
         
         // right barbutton title
         selectionMenu.rightBarButtonTitle = "Submit"
+        
+        selectionMenu.leftBarButtonTitle =  "Close"
         
         // show as default
         selectionMenu.show(from: self)
     }
     
-    
-    func showAsPush() {
-        
-        // Show menu with datasource array - Default SelectionType = Single
-        // Here you'll get cell configuration where you can set any text based on condition
-        // Cell configuration following parameters.
-        // 1. UITableViewCell   2. Object of type T   3. IndexPath
-        
-        let selectionMenu =  RSSelectionMenu(dataSource: simpleDataArray) { (cell, object, indexPath) in
-            cell.textLabel?.text = object
-            
-            // Change tint color (if needed)
-            cell.tintColor = UIColor.blue
-        }
-        
-        selectionMenu.showSearchBar(withPlaceHolder: "Search Player", tintColor: UIColor.white.withAlphaComponent(0.3)) { (searchText) -> ([String]) in
-            
-            // return filtered array based on any condition
-            // here let's return array where firstname starts with specified search text
-            
-            return self.dataArray.filter({ $0.lowercased().hasPrefix(searchText.lowercased()) })
-        }
-        
-        // set navigation title
-        selectionMenu.setNavigationBar(title: "Select Player")
-        
-        // set default selected items when menu present on screen.
-        // Here you'll get onDidSelectRow
-        
-//        simpleSelectedArray =  simpleDataArray
-        
-        selectionMenu.setSelectedItems(items: simpleSelectedArray) { (text, isSelected, selectedItems) in
-            
-            // update your existing array with updated selected items, so when menu presents second time updated items will be default selected.
-            self.simpleSelectedArray = selectedItems
-        }
-        
-        
-        // show as PresentationStyle = Push
-        selectionMenu.show(style: .Push, from: self)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch textField {
-        case tfUsernameInstagram:
-            tfCategory.becomeFirstResponder()
-            break
-        case tfCategory:
-             tfGender.becomeFirstResponder()
-             break
-        case tfGender:
-             tfRoles.becomeFirstResponder()
-            break
-        default:
-            textField.resignFirstResponder()
-        }
-        
-        return true
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == tfCategory {
-            showAsFormSheetWithSearch()
-//            presentWithMultiSelectionAndSearch()
-//            showAsPush()
-        }
-    }
-    
-   
     
     @IBAction func saveContact(_ sender: UIButton) {
         
