@@ -48,4 +48,8 @@ class InjectionUseCase {
     class func provideGetContacts() -> getContacts {
         return getContacts(contactRemoteRepository: contactRepository)
     }
+    
+    class func provideSaveContact() -> SaveContact {
+        return SaveContact(contactRemoteRepository: contactRepository)
+    }
 }

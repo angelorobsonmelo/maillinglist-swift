@@ -16,12 +16,7 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate, SaveCont
     @IBOutlet weak var btSelectGender: UIButton!
     @IBOutlet weak var btSelectRoles: UIButton!
     
-    lazy var presenter: SaveContactPresenter = {
-        return SaveContactPresenter(view: self, getCategoriesUseCase: InjectionUseCase.provideGetCategories(), getRolesUseCase: InjectionUseCase.provideGetRoles())
-    }()
-    
-    let simpleDataArray = ["Sachin", "Rahul", "Saurav", "Virat", "Suresh", "Ravindra", "Chris", "Steve", "Anil"]
-    var simpleSelectedArray = [String]()
+    var contact: Contact!
     
     let genders = ["MALE", "FEMALE"]
     var genderSelected = [String]()
@@ -34,12 +29,9 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate, SaveCont
     
     var firstRowSelected = true
     
-    let dataArray = ["Sachin Tendulkar", "Rahul Dravid", "Saurav Ganguli", "Virat Kohli", "Suresh Raina", "Ravindra Jadeja", "Chris Gyle", "Steve Smith", "Anil Kumble"]
-    
-    var selectedDataArray = [String]()
-    
-    var customDataArray = [Person]()
-    var customselectedDataArray = [Person]()
+    lazy var presenter: SaveContactPresenter = {
+        return SaveContactPresenter(view: self, getCategoriesUseCase: InjectionUseCase.provideGetCategories(), getRolesUseCase: InjectionUseCase.provideGetRoles(), saveContactUseCase: InjectionUseCase.provideSaveContact())
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +47,10 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate, SaveCont
         btSelectRoles.backgroundColor = .clear
         btSelectRoles.layer.borderWidth = 0.5
         btSelectRoles.layer.borderColor = UIColor.black.cgColor
+        
+        if contact != nil {
+            print(contact.userNameInstagram)
+        }
         
         presenter.getCategories()
         presenter.getRoles()
@@ -82,6 +78,10 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate, SaveCont
     
     @IBAction func showRoles(_ sender: UIButton) {
         showRoles()
+    }
+    
+    func showContact(contact: Contact) {
+        navigationController?.popViewController(animated: true)
     }
     
     func showCategories() {
@@ -156,7 +156,9 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate, SaveCont
     
     
     @IBAction func saveContact(_ sender: UIButton) {
+        let contact = Contact(gender: genderSelected.first!, userNameInstagram: tfUsernameInstagram.text!, category: categoriesSelected.first!, roles: rolesSelected)
         
+        presenter.saveContact(contact: contact)
     }
     
 }

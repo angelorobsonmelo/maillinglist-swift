@@ -5,7 +5,7 @@ import ObjectMapper
 import AlamofireObjectMapper
 
 public class ContactRemoteRepositoryImpl: ContactRemoteRepository {
-
+ 
     private let jsonEncoder = JSONEncoder()
     private var contactUrl = "\(Constants.baseUrl)/contacts"
 //    let headers = Utils.getHeadersWithJwtToken()
@@ -27,13 +27,35 @@ public class ContactRemoteRepositoryImpl: ContactRemoteRepository {
         Alamofire.request(request).responseObject { (response: DataResponse<ResponseBase<ContentObjects<Contact>>>) in
             switch response.result {
             case .success:
-                if let categoryResponse = response.result.value?.data?.content {
-                    if categoryResponse.isEmpty {
+                if let contactResponse = response.result.value?.data?.content {
+                    if contactResponse.isEmpty {
                         onEmpty()
                         return
                     }
                     
-                    onSuccess(categoryResponse)
+                    onSuccess(contactResponse)
+                }
+            case .failure(let error):
+                onError(response.result.value?.errors ?? [error.localizedDescription])
+            }
+            
+        }
+        
+    }
+    
+    public func saveContact(contactSave: ContactSave, onSuccess: @escaping (Contact) -> Void, onEmpty: @escaping () -> Void, onError: @escaping ([String]) -> Void) {
+        let request = Utils.getRequest(object: contactSave, url: "contacts" , method: HTTPMethod.post.rawValue)
+
+        Alamofire.request(request).responseObject { (response: DataResponse<ResponseBase<Contact>>) in
+            switch response.result {
+            case .success:
+                if let contactResponse = response.result.value?.data {
+                    if contactResponse.id == nil {
+                        onEmpty()
+                        return
+                    }
+                    
+                    onSuccess(contactResponse)
                 }
             case .failure(let error):
                 onError(response.result.value?.errors ?? [error.localizedDescription])
