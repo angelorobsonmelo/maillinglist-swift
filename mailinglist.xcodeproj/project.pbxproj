@@ -51,6 +51,8 @@
 		C7C1770A20E1BDC100520782 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C1770920E1BDC100520782 /* Category.swift */; };
 		C7C1770C20E5CE4800520782 /* SaveContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C1770B20E5CE4800520782 /* SaveContactViewController.swift */; };
 		C7C1770E20E99B7A00520782 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C1770D20E99B7A00520782 /* Person.swift */; };
+		C7C1771220E9D64E00520782 /* SaveContactContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C1771120E9D64E00520782 /* SaveContactContract.swift */; };
+		C7C1771420E9D65C00520782 /* SaveContactPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C1771320E9D65C00520782 /* SaveContactPresenter.swift */; };
 		F401E75620D96B52006D5047 /* InjectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75520D96B52006D5047 /* InjectionUseCase.swift */; };
 		F401E75820D96C6B006D5047 /* InjectionRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75720D96C6B006D5047 /* InjectionRemoteRepository.swift */; };
 		F401E75E20D973C9006D5047 /* LoginRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75D20D973C9006D5047 /* LoginRemoteRepository.swift */; };
@@ -113,6 +115,8 @@
 		C7C1770920E1BDC100520782 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		C7C1770B20E5CE4800520782 /* SaveContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveContactViewController.swift; sourceTree = "<group>"; };
 		C7C1770D20E99B7A00520782 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		C7C1771120E9D64E00520782 /* SaveContactContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveContactContract.swift; sourceTree = "<group>"; };
+		C7C1771320E9D65C00520782 /* SaveContactPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveContactPresenter.swift; sourceTree = "<group>"; };
 		D0EAD410BA1E024D31E0D552 /* Pods-mailinglist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mailinglist.release.xcconfig"; path = "Pods/Target Support Files/Pods-mailinglist/Pods-mailinglist.release.xcconfig"; sourceTree = "<group>"; };
 		F401E75520D96B52006D5047 /* InjectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionUseCase.swift; sourceTree = "<group>"; };
 		F401E75720D96C6B006D5047 /* InjectionRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionRemoteRepository.swift; sourceTree = "<group>"; };
@@ -355,6 +359,32 @@
 			path = category;
 			sourceTree = "<group>";
 		};
+		C7C1770F20E9D61900520782 /* saveContact */ = {
+			isa = PBXGroup;
+			children = (
+				C7C1771520E9D67100520782 /* domain */,
+				C7C1770B20E5CE4800520782 /* SaveContactViewController.swift */,
+				C7C1771120E9D64E00520782 /* SaveContactContract.swift */,
+				C7C1771320E9D65C00520782 /* SaveContactPresenter.swift */,
+			);
+			path = saveContact;
+			sourceTree = "<group>";
+		};
+		C7C1771020E9D63D00520782 /* usecases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = usecases;
+			sourceTree = "<group>";
+		};
+		C7C1771520E9D67100520782 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				C7C1771020E9D63D00520782 /* usecases */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
 		F401E75420D96B3B006D5047 /* injections */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,12 +466,12 @@
 		F4B4DA9E20E2A0500059E587 /* contact */ = {
 			isa = PBXGroup;
 			children = (
+				C7C1770F20E9D61900520782 /* saveContact */,
 				F41340A520E2CA75003335F3 /* domain */,
 				F4B4DAA220E2A17F0059E587 /* ContactTableViewCell.swift */,
 				F4B4DAA420E2A1B50059E587 /* ContactTableViewController.swift */,
 				F4B4DAA620E2A1E00059E587 /* ContactPresenter.swift */,
 				F4B4DAA820E2A1EA0059E587 /* ContactContract.swift */,
-				C7C1770B20E5CE4800520782 /* SaveContactViewController.swift */,
 			);
 			path = contact;
 			sourceTree = "<group>";
@@ -580,6 +610,7 @@
 			files = (
 				C7BC0FAE20DC7E7A00F70BE2 /* ContentObjects.swift in Sources */,
 				C7AA3E0B20D742A100A44D7E /* LoginPresenter.swift in Sources */,
+				C7C1771420E9D65C00520782 /* SaveContactPresenter.swift in Sources */,
 				C7BC0FC120E1A1AB00F70BE2 /* Sort.swift in Sources */,
 				C7BC0FA320DB319400F70BE2 /* Role.swift in Sources */,
 				C7C176FB20E1BC3E00520782 /* GetCategories.swift in Sources */,
@@ -621,6 +652,7 @@
 				F4B4DAA920E2A1EA0059E587 /* ContactContract.swift in Sources */,
 				F4B4DAA720E2A1E00059E587 /* ContactPresenter.swift in Sources */,
 				C7BC0F8920D9EC8D00F70BE2 /* ViewController+CoreData.swift in Sources */,
+				C7C1771220E9D64E00520782 /* SaveContactContract.swift in Sources */,
 				F4B4DAA520E2A1B50059E587 /* ContactTableViewController.swift in Sources */,
 				F4B4DAA320E2A17F0059E587 /* ContactTableViewCell.swift in Sources */,
 				C7C1770320E1BCD300520782 /* CategoryPresenter.swift in Sources */,

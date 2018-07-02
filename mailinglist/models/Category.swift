@@ -1,8 +1,8 @@
 import Foundation
 import ObjectMapper
+import RSSelectionMenu
 
-
-public class Category: Codable, Mappable {
+public class Category: NSObject, Codable, Mappable, UniqueProperty {
     
     var id: Int?
     var category: String?
@@ -23,6 +23,10 @@ public class Category: Codable, Mappable {
     public func mapping(map: Map) {
         id <- map["id"]
         category <- map["category"]
+    }
+    
+    public func uniquePropertyName() -> String {
+        return "id"
     }
 }
 

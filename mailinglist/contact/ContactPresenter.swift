@@ -1,7 +1,7 @@
 import Foundation
 
 class ContactPresenter: ContactPresenterContract {
-    
+        
     let view: ContactViewContract
     let getContactsUseCase: getContacts
 

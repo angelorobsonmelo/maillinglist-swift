@@ -12,3 +12,4 @@ protocol ContactPresenterContract {
     func saveContact(contact: Contact)
     func deleteContact(contact: Contact)
 }
+

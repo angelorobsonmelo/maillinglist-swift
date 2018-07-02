@@ -9,19 +9,26 @@
 import UIKit
 import RSSelectionMenu
 
-class SaveContactViewController: UIViewController, UITextFieldDelegate {
-
+class SaveContactViewController: UIViewController, UITextFieldDelegate, SaveContactViewContract {
+ 
     @IBOutlet weak var tfUsernameInstagram: UITextField!
     @IBOutlet weak var btSelectCategory: UIButton!
     @IBOutlet weak var btSelectGender: UIButton!
     @IBOutlet weak var btSelectRoles: UIButton!
     
+    lazy var presenter: SaveContactPresenter = {
+        return SaveContactPresenter(view: self, getCategoriesUseCase: InjectionUseCase.provideGetCategories())
+    }()
     
     let simpleDataArray = ["Sachin", "Rahul", "Saurav", "Virat", "Suresh", "Ravindra", "Chris", "Steve", "Anil"]
     var simpleSelectedArray = [String]()
     
     let genders = ["MALE", "FEMALE"]
     var genderSelected = [String]()
+    
+    var categories: [Category] = []
+    var categoriesSelected = [Category]()
+    
     
     var firstRowSelected = true
     
@@ -46,10 +53,20 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate {
         btSelectRoles.backgroundColor = .clear
         btSelectRoles.layer.borderWidth = 0.5
         btSelectRoles.layer.borderColor = UIColor.black.cgColor
+        
+        presenter.getCategories()
+    }
+    
+    func showError(error: [String]) {
+        print(error)
+    }
+    
+    func showCategories(categories: [Category]) {
+        self.categories = categories
     }
     
     @IBAction func showCategories(_ sender: UIButton) {
-        showAsFormSheetWithSearch()
+        showCategories()
     }
     
     @IBAction func showGenders(_ sender: UIButton) {
@@ -60,32 +77,24 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate {
         presentWithMultiSelectionAndSearch()
     }
     
-    func showAsFormSheetWithSearch() {
-        // Show menu with datasource array - PresentationStyle = Formsheet & SearchBar
-        let selectionMenu = RSSelectionMenu(dataSource: dataArray) { (cell, object, indexPath) in
-            cell.textLabel?.text = object
-            
-            // Change tint color (if needed)
+    func showCategories() {
+        let selectionMenu = RSSelectionMenu(dataSource: categories) { (cell, object, indexPath) in
+            cell.textLabel?.text = object.category
             cell.tintColor = UIColor(named: "main")
         }
         
-        // show selected items
-        selectionMenu.setSelectedItems(items: selectedDataArray) { (text, selected, selectedItems) in
-            self.selectedDataArray = selectedItems
+        selectionMenu.setSelectedItems(items: categoriesSelected) { (text, selected, selectedItems) in
+            self.categoriesSelected = selectedItems
         }
         
-        // show searchbar with placeholder text and barTintColor
-        // Here you'll get search text - when user types in seachbar
-        selectionMenu.showSearchBar(withPlaceHolder: "Search Player", tintColor: UIColor.white.withAlphaComponent(0.3)) { (searchText) -> ([String]) in
-            
-            // return filtered array based on any condition
-            // here let's return array where firstname starts with specified search text
-            
-            return self.dataArray.filter({ $0.lowercased().hasPrefix(searchText.lowercased()) })
+        selectionMenu.showSearchBar(withPlaceHolder: "Search Category", tintColor: UIColor.white.withAlphaComponent(0.3)) { (searchText) -> ([Category]) in
+            return self.categories.filter({ ($0.category?.lowercased().hasPrefix(searchText.lowercased()))! })
         }
         
         selectionMenu.show(style: .Formsheet, from: self)
     }
+    
+  
     
     func showGenders() {
         let selectionMenu = RSSelectionMenu(dataSource: genders) { (cell, object, indexPath) in
@@ -133,7 +142,7 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate {
         }
         
         // set navigationbar theme
-        selectionMenu.setNavigationBar(title: "Select Role", attributes: nil, barTintColor: UIColor.init(named: ("main")), tintColor: UIColor.white)
+        selectionMenu.setNavigationBar(title: "", attributes: nil, barTintColor: UIColor.init(named: ("main")), tintColor: UIColor.white)
         
         // right barbutton title
         selectionMenu.rightBarButtonTitle = "Submit"
