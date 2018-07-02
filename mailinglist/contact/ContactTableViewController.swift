@@ -41,6 +41,13 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
         presenter.getContacts(contactFilter: contactFilter)
     }
     
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier! == "segueContactDetail" {
+                let vc = segue.destination as! ContactDetailViewController
+                vc.contact = contacts[tableView.indexPathForSelectedRow!.row]
+            }
+        }
+    
     func showContacts(contacts: [Contact?]) {
         self.contacts = contacts as! [Contact]
         self.tableView.reloadData()
@@ -57,13 +64,6 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
     func deleteContract(isSuccess: Bool) {
         
     }
-
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier! == "segueSaveContact" {
-//            let vc = segue.destination as! SaveContactViewController
-//            vc.contact =
-//        }
-//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.backgroundView = contacts.count == 0 ? label : nil

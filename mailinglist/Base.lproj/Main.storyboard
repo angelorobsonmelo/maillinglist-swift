@@ -249,7 +249,7 @@
                                     <outlet property="lbGender" destination="MqY-so-lsn" id="sfM-az-oUQ"/>
                                     <outlet property="lbInstagram" destination="b9S-Cd-0wu" id="TAR-Tq-Rec"/>
                                     <outlet property="lbRoles" destination="ijj-A6-YTI" id="eMR-VT-R2A"/>
-                                    <segue destination="Ec3-cz-vbW" kind="show" id="dxU-1N-s6Y"/>
+                                    <segue destination="Ec3-cz-vbW" kind="show" identifier="segueContactDetail" id="dxU-1N-s6Y"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -274,7 +274,7 @@
         <!--Contact Details-->
         <scene sceneID="wly-6h-qbE">
             <objects>
-                <viewController id="Ec3-cz-vbW" sceneMemberID="viewController">
+                <viewController id="Ec3-cz-vbW" customClass="ContactDetailViewController" customModule="mailinglist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sFG-c5-tX9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -292,7 +292,7 @@
                                     <constraint firstAttribute="width" constant="263" id="3TE-xd-Y0t"/>
                                     <constraint firstAttribute="height" constant="22" id="zBj-UR-r0p"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -359,6 +359,13 @@
                     <navigationItem key="navigationItem" title="Contact Details" id="0nJ-J7-sAT">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Bp6-ol-B1a"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="ivAvatar" destination="TbT-RY-gIG" id="ZqK-ic-R8o"/>
+                        <outlet property="lbCategory" destination="Ci6-kI-X8y" id="ZBh-iG-rEE"/>
+                        <outlet property="lbGender" destination="624-00-4Y3" id="7gx-6O-gxS"/>
+                        <outlet property="lbRoles" destination="der-3H-7zf" id="bNt-0Y-8eX"/>
+                        <outlet property="lbUserNameInstagram" destination="s1B-zS-7HD" id="4BJ-QQ-dLF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rL4-Pd-BUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -572,9 +579,6 @@
     </scenes>
     <resources>
         <image name="avatar_female" width="340" height="340"/>
-        <namedColor name="main">
-            <color red="0.0" green="0.68199998140335083" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="main">
             <color red="0.0" green="0.68199998140335083" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

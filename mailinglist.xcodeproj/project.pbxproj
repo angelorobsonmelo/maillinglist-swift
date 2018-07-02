@@ -54,6 +54,7 @@
 		C7C1771420E9D65C00520782 /* SaveContactPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C1771320E9D65C00520782 /* SaveContactPresenter.swift */; };
 		C7C1771720EA57C600520782 /* SaveContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C1771620EA57C600520782 /* SaveContact.swift */; };
 		C7C1771A20EA5BB500520782 /* ContactSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C1771920EA5BB500520782 /* ContactSave.swift */; };
+		C7C1771D20EAE30200520782 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C1771C20EAE30200520782 /* ContactDetailViewController.swift */; };
 		F401E75620D96B52006D5047 /* InjectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75520D96B52006D5047 /* InjectionUseCase.swift */; };
 		F401E75820D96C6B006D5047 /* InjectionRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75720D96C6B006D5047 /* InjectionRemoteRepository.swift */; };
 		F401E75E20D973C9006D5047 /* LoginRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75D20D973C9006D5047 /* LoginRemoteRepository.swift */; };
@@ -119,6 +120,7 @@
 		C7C1771320E9D65C00520782 /* SaveContactPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveContactPresenter.swift; sourceTree = "<group>"; };
 		C7C1771620EA57C600520782 /* SaveContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveContact.swift; sourceTree = "<group>"; };
 		C7C1771920EA5BB500520782 /* ContactSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactSave.swift; sourceTree = "<group>"; };
+		C7C1771C20EAE30200520782 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 		D0EAD410BA1E024D31E0D552 /* Pods-mailinglist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mailinglist.release.xcconfig"; path = "Pods/Target Support Files/Pods-mailinglist/Pods-mailinglist.release.xcconfig"; sourceTree = "<group>"; };
 		F401E75520D96B52006D5047 /* InjectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionUseCase.swift; sourceTree = "<group>"; };
 		F401E75720D96C6B006D5047 /* InjectionRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionRemoteRepository.swift; sourceTree = "<group>"; };
@@ -396,6 +398,14 @@
 			path = dto;
 			sourceTree = "<group>";
 		};
+		C7C1771B20EAE2E200520782 /* contactDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C7C1771C20EAE30200520782 /* ContactDetailViewController.swift */,
+			);
+			path = contactDetail;
+			sourceTree = "<group>";
+		};
 		F401E75420D96B3B006D5047 /* injections */ = {
 			isa = PBXGroup;
 			children = (
@@ -477,6 +487,7 @@
 		F4B4DA9E20E2A0500059E587 /* contact */ = {
 			isa = PBXGroup;
 			children = (
+				C7C1771B20EAE2E200520782 /* contactDetail */,
 				C7C1770F20E9D61900520782 /* saveContact */,
 				F41340A520E2CA75003335F3 /* domain */,
 				F4B4DAA220E2A17F0059E587 /* ContactTableViewCell.swift */,
@@ -657,6 +668,7 @@
 				C7BC0FA120DB303F00F70BE2 /* RoleRemoteRepository.swift in Sources */,
 				C7BC0FC320E1A8EF00F70BE2 /* PropertiesBase.swift in Sources */,
 				C7AA3E0D20D7443500A44D7E /* LoginContract.swift in Sources */,
+				C7C1771D20EAE30200520782 /* ContactDetailViewController.swift in Sources */,
 				C7AA3E1E20D75E7900A44D7E /* Constants.swift in Sources */,
 				C7BC0FB720DDBC6C00F70BE2 /* saveRole.swift in Sources */,
 				F4B4DA9D20E29E890059E587 /* ContactRemoteRepositoryImpl.swift in Sources */,
