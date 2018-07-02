@@ -10,14 +10,14 @@ import UIKit
 import RSSelectionMenu
 
 class SaveContactViewController: UIViewController, UITextFieldDelegate, SaveContactViewContract {
- 
+    
     @IBOutlet weak var tfUsernameInstagram: UITextField!
     @IBOutlet weak var btSelectCategory: UIButton!
     @IBOutlet weak var btSelectGender: UIButton!
     @IBOutlet weak var btSelectRoles: UIButton!
     
     lazy var presenter: SaveContactPresenter = {
-        return SaveContactPresenter(view: self, getCategoriesUseCase: InjectionUseCase.provideGetCategories())
+        return SaveContactPresenter(view: self, getCategoriesUseCase: InjectionUseCase.provideGetCategories(), getRolesUseCase: InjectionUseCase.provideGetRoles())
     }()
     
     let simpleDataArray = ["Sachin", "Rahul", "Saurav", "Virat", "Suresh", "Ravindra", "Chris", "Steve", "Anil"]
@@ -29,6 +29,8 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate, SaveCont
     var categories: [Category] = []
     var categoriesSelected = [Category]()
     
+    var roles: [Role] = []
+    var rolesSelected = [Role]()
     
     var firstRowSelected = true
     
@@ -55,6 +57,7 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate, SaveCont
         btSelectRoles.layer.borderColor = UIColor.black.cgColor
         
         presenter.getCategories()
+        presenter.getRoles()
     }
     
     func showError(error: [String]) {
@@ -63,6 +66,10 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate, SaveCont
     
     func showCategories(categories: [Category]) {
         self.categories = categories
+    }
+    
+    func showRoles(roles: [Role]) {
+        self.roles = roles
     }
     
     @IBAction func showCategories(_ sender: UIButton) {
@@ -74,7 +81,7 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate, SaveCont
     }
     
     @IBAction func showRoles(_ sender: UIButton) {
-        presentWithMultiSelectionAndSearch()
+        showRoles()
     }
     
     func showCategories() {
@@ -85,6 +92,7 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate, SaveCont
         
         selectionMenu.setSelectedItems(items: categoriesSelected) { (text, selected, selectedItems) in
             self.categoriesSelected = selectedItems
+            self.btSelectCategory.setTitle(text?.category, for: .normal)
         }
         
         selectionMenu.showSearchBar(withPlaceHolder: "Search Category", tintColor: UIColor.white.withAlphaComponent(0.3)) { (searchText) -> ([Category]) in
@@ -114,31 +122,20 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate, SaveCont
         selectionMenu.show(style: .Formsheet, from: self)
     }
     
-    func presentWithMultiSelectionAndSearch() {
-        
-        let selectionMenu =  RSSelectionMenu(selectionType: .Multiple, dataSource: dataArray, cellType: .SubTitle) { (cell, object, indexPath) in
-            
-            cell.textLabel?.text = object
-            
-            // Change tint color (if needed)
+    func showRoles() {
+        let selectionMenu =  RSSelectionMenu(selectionType: .Multiple, dataSource: roles, cellType: .Basic) { (cell, object, indexPath) in
+            cell.textLabel?.text = object.function
             cell.tintColor = UIColor(named: "main")
         }
         
-        selectionMenu.setSelectedItems(items: selectedDataArray) { (text, selected, selectedItems) in
-            self.selectedDataArray = selectedItems
+        selectionMenu.setSelectedItems(items: rolesSelected) { (text, selected, selectedItems) in
+            self.rolesSelected = selectedItems
+            self.btSelectRoles.setTitle("\(self.rolesSelected.count) role(s) selected", for: .normal)
         }
         
-        // To show first row as All, when dropdown as All selected by default
-        // Here you'll get Text and isSelected when user selects first row
-        
-        selectionMenu.addFirstRowAs(rowType: .All, showSelected: self.firstRowSelected) { (text, isSelected) in
-            self.firstRowSelected = isSelected
-        }
-        
-        // show searchbar
-        // Here you'll get search text - when user types in seachbar
-        selectionMenu.showSearchBar { (searchtext) -> ([String]) in
-            return self.dataArray.filter({ $0.lowercased().hasPrefix(searchtext.lowercased()) })
+    
+        selectionMenu.showSearchBar { (searchtext) -> ([Role]) in
+            return self.roles.filter({ ($0.function?.lowercased().hasPrefix(searchtext.lowercased()))! })
         }
         
         // set navigationbar theme
