@@ -12,5 +12,6 @@ target 'mailinglist' do
    pod 'JWTDecode', '~> 2.1'
    pod 'SwiftKeychainWrapper'
    pod 'AlamofireObjectMapper', '~> 5.0'
+   pod 'RSSelectionMenu'
 
 end

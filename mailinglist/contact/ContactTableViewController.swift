@@ -29,6 +29,8 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 300
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
