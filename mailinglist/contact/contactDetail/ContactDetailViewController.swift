@@ -30,7 +30,10 @@ class ContactDetailViewController: UIViewController, ContactDetailViewContract {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
-        presenter.getContact(id: contact.id!)
+     
+        if let id = contact.id {
+        presenter.getContact(id: id)
+        }
     }
     
     func showError(error: [String]) {

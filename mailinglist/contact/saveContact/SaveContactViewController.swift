@@ -163,7 +163,11 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate, SaveCont
     
     
     @IBAction func saveContact(_ sender: UIButton) {
-        let contact = Contact(gender: genderSelected.first!, userNameInstagram: tfUsernameInstagram.text!, category: categoriesSelected.first!, roles: rolesSelected)
+        var contact = Contact(gender: genderSelected.first!, userNameInstagram: tfUsernameInstagram.text!, category: categoriesSelected.first!, roles: rolesSelected)
+        
+        if self.contact?.id != nil {
+            contact = Contact(id: self.contact.id!, gender: genderSelected.first!, userNameInstagram: tfUsernameInstagram.text!, category: categoriesSelected.first!, roles: rolesSelected)
+        }
         
         presenter.saveContact(contact: contact)
     }

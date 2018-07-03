@@ -44,7 +44,13 @@ public class ContactRemoteRepositoryImpl: ContactRemoteRepository {
     }
     
     public func saveContact(contactSave: ContactSave, onSuccess: @escaping (Contact) -> Void, onEmpty: @escaping () -> Void, onError: @escaping ([String]) -> Void) {
-        let request = Utils.getRequest(object: contactSave, url: "contacts" , method: HTTPMethod.post.rawValue)
+        var url = "contacts"
+        var request = Utils.getRequest(object: contactSave, url: url, method: HTTPMethod.post.rawValue)
+        
+        if let id = contactSave.id {
+            url += "/\(id)"
+            request = Utils.getRequest(object: contactSave, url: url, method: HTTPMethod.put.rawValue)
+        }
 
         Alamofire.request(request).responseObject { (response: DataResponse<ResponseBase<Contact>>) in
             switch response.result {
