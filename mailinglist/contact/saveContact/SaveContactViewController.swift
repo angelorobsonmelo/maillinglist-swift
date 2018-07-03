@@ -49,7 +49,14 @@ class SaveContactViewController: UIViewController, UITextFieldDelegate, SaveCont
         btSelectRoles.layer.borderColor = UIColor.black.cgColor
         
         if contact != nil {
-            print(contact.userNameInstagram)
+            tfUsernameInstagram.text = contact.userNameInstagram
+            btSelectCategory.setTitle(contact.category?.category, for: .normal)
+            btSelectGender.setTitle(contact.gender, for: .normal)
+            btSelectRoles.setTitle("\(String(describing: contact.roles!.count)) role(s) selected", for: .normal)
+            
+            categoriesSelected.append(contact.category!)
+            genderSelected.append(contact.gender!)
+            rolesSelected = contact.roles!
         }
         
         presenter.getCategories()

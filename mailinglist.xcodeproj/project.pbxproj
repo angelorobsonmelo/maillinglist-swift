@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		692EE9F566327490ABCC9482 /* Pods_mailinglist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 446105BF79D286D24DCB3772 /* Pods_mailinglist.framework */; };
+		C76232AD20EAFA9B00E6DF70 /* GetContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76232AC20EAFA9B00E6DF70 /* GetContact.swift */; };
+		C76232B120EAFBA700E6DF70 /* ContactDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76232B020EAFBA700E6DF70 /* ContactDetailPresenter.swift */; };
+		C76232B320EAFBB300E6DF70 /* ContactDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76232B220EAFBB300E6DF70 /* ContactDetailContract.swift */; };
 		C7AA3DEF20D6F43800A44D7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AA3DEE20D6F43800A44D7E /* AppDelegate.swift */; };
 		C7AA3DF420D6F43800A44D7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7AA3DF220D6F43800A44D7E /* Main.storyboard */; };
 		C7AA3DF720D6F43800A44D7E /* mailinglist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C7AA3DF520D6F43800A44D7E /* mailinglist.xcdatamodeld */; };
@@ -72,6 +75,9 @@
 /* Begin PBXFileReference section */
 		446105BF79D286D24DCB3772 /* Pods_mailinglist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mailinglist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7150690E9EFFEF62448AA51D /* Pods-mailinglist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mailinglist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mailinglist/Pods-mailinglist.debug.xcconfig"; sourceTree = "<group>"; };
+		C76232AC20EAFA9B00E6DF70 /* GetContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetContact.swift; sourceTree = "<group>"; };
+		C76232B020EAFBA700E6DF70 /* ContactDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailPresenter.swift; sourceTree = "<group>"; };
+		C76232B220EAFBB300E6DF70 /* ContactDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailContract.swift; sourceTree = "<group>"; };
 		C7AA3DEB20D6F43800A44D7E /* mailinglist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mailinglist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7AA3DEE20D6F43800A44D7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7AA3DF320D6F43800A44D7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -163,6 +169,22 @@
 				446105BF79D286D24DCB3772 /* Pods_mailinglist.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C76232AE20EAFB3200E6DF70 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				C76232AF20EAFB3800E6DF70 /* usecases */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		C76232AF20EAFB3800E6DF70 /* usecases */ = {
+			isa = PBXGroup;
+			children = (
+				C76232AC20EAFA9B00E6DF70 /* GetContact.swift */,
+			);
+			path = usecases;
 			sourceTree = "<group>";
 		};
 		C7AA3DE220D6F43800A44D7E = {
@@ -401,7 +423,10 @@
 		C7C1771B20EAE2E200520782 /* contactDetail */ = {
 			isa = PBXGroup;
 			children = (
+				C76232AE20EAFB3200E6DF70 /* domain */,
 				C7C1771C20EAE30200520782 /* ContactDetailViewController.swift */,
+				C76232B020EAFBA700E6DF70 /* ContactDetailPresenter.swift */,
+				C76232B220EAFBB300E6DF70 /* ContactDetailContract.swift */,
 			);
 			path = contactDetail;
 			sourceTree = "<group>";
@@ -630,6 +655,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C76232AD20EAFA9B00E6DF70 /* GetContact.swift in Sources */,
 				C7BC0FAE20DC7E7A00F70BE2 /* ContentObjects.swift in Sources */,
 				C7AA3E0B20D742A100A44D7E /* LoginPresenter.swift in Sources */,
 				C7C1771420E9D65C00520782 /* SaveContactPresenter.swift in Sources */,
@@ -659,6 +685,7 @@
 				C7BC0F9E20DB2FC400F70BE2 /* GetRoles.swift in Sources */,
 				C7BC0F9620D9F59F00F70BE2 /* InjectionLocalRepository.swift in Sources */,
 				C7BC0F8F20D9EEE300F70BE2 /* SaveUser.swift in Sources */,
+				C76232B320EAFBB300E6DF70 /* ContactDetailContract.swift in Sources */,
 				C7C1770620E1BD2B00520782 /* CategoryRemoteRepository.swift in Sources */,
 				C7C1771A20EA5BB500520782 /* ContactSave.swift in Sources */,
 				C7BC0FA920DB4DF900F70BE2 /* RolePresenter.swift in Sources */,
@@ -675,6 +702,7 @@
 				C7C176F820E1B9A700520782 /* CategoriesTableViewController.swift in Sources */,
 				F4B4DAA920E2A1EA0059E587 /* ContactContract.swift in Sources */,
 				F4B4DAA720E2A1E00059E587 /* ContactPresenter.swift in Sources */,
+				C76232B120EAFBA700E6DF70 /* ContactDetailPresenter.swift in Sources */,
 				C7BC0F8920D9EC8D00F70BE2 /* ViewController+CoreData.swift in Sources */,
 				C7C1771220E9D64E00520782 /* SaveContactContract.swift in Sources */,
 				F4B4DAA520E2A1B50059E587 /* ContactTableViewController.swift in Sources */,

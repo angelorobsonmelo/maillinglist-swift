@@ -357,7 +357,11 @@
                         <viewLayoutGuide key="safeArea" id="Q0F-JZ-VGC"/>
                     </view>
                     <navigationItem key="navigationItem" title="Contact Details" id="0nJ-J7-sAT">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Bp6-ol-B1a"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Bp6-ol-B1a">
+                            <connections>
+                                <segue destination="1Sb-gD-SLz" kind="show" identifier="segueEditContact" id="qHW-CE-Ybk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="ivAvatar" destination="TbT-RY-gIG" id="ZqK-ic-R8o"/>
@@ -583,4 +587,7 @@
             <color red="0.0" green="0.68199998140335083" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="qHW-CE-Ybk"/>
+    </inferredMetricsTieBreakers>
 </document>

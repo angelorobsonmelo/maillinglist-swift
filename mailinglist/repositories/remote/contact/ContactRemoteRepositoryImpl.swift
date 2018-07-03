@@ -8,7 +8,7 @@ public class ContactRemoteRepositoryImpl: ContactRemoteRepository {
  
     private let jsonEncoder = JSONEncoder()
     private var contactUrl = "\(Constants.baseUrl)/contacts"
-//    let headers = Utils.getHeadersWithJwtToken()
+    private let headers = Utils.getHeadersWithJwtToken()
     
     private static var INSTANCE: ContactRemoteRepository?
     
@@ -65,4 +65,23 @@ public class ContactRemoteRepositoryImpl: ContactRemoteRepository {
         
     }
     
+    public func getContact(id: Int, onSuccess: @escaping (Contact) -> Void, onEmpty: @escaping () -> Void, onError: @escaping ([String]) -> Void) {
+        let url = "\(self.contactUrl)/\(id)"
+        Alamofire.request(url, headers: self.headers).responseObject { (response: DataResponse<ResponseBase<Contact>>) in
+            switch response.result {
+            case .success:
+                if let conctactResponse = response.result.value?.data {
+                    if conctactResponse.id == nil {
+                        onEmpty()
+                        return
+                    }
+                    
+                    onSuccess(conctactResponse)
+                }
+            case .failure(let error):
+                onError(response.result.value?.errors ?? [error.localizedDescription])
+            }
+            
+        }
+    }
 }

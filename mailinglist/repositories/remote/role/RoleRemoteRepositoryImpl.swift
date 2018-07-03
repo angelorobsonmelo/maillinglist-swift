@@ -8,7 +8,7 @@ public class RoleRemoteRepositoryImpl: RoleRemoteRepository {
   
     private let jsonEncoder = JSONEncoder()
     private let roleUrl = "\(Constants.baseUrl)/functions"
-    let headers = Utils.getHeadersWithJwtToken()
+    private let headers = Utils.getHeadersWithJwtToken()
 
     private static var INSTANCE: RoleRemoteRepository?
     

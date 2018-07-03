@@ -41,12 +41,12 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
         presenter.getContacts(contactFilter: contactFilter)
     }
     
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier! == "segueContactDetail" {
                 let vc = segue.destination as! ContactDetailViewController
                 vc.contact = contacts[tableView.indexPathForSelectedRow!.row]
             }
-        }
+    }
     
     func showContacts(contacts: [Contact?]) {
         self.contacts = contacts as! [Contact]

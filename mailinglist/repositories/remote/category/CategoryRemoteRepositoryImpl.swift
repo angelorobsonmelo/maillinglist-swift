@@ -8,7 +8,7 @@ public class CategoryRemoteRepositoryImpl: CategoryRemoteRepository {
  
     private let jsonEncoder = JSONEncoder()
     private let categoryUrl = "\(Constants.baseUrl)/categories"
-    let headers = Utils.getHeadersWithJwtToken()
+    private let headers = Utils.getHeadersWithJwtToken()
     
     private static var INSTANCE: CategoryRemoteRepository?
     

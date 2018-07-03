@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ContactDetailViewController: UIViewController {
-
+class ContactDetailViewController: UIViewController, ContactDetailViewContract {
+    
+    
     var contact: Contact!
     
     @IBOutlet weak var ivAvatar: UIImageView!
@@ -18,29 +19,43 @@ class ContactDetailViewController: UIViewController {
     @IBOutlet weak var lbGender: UILabel!
     @IBOutlet weak var lbRoles: UILabel!
     
+    lazy var presenter: ContactDetailPresenter = {
+        return ContactDetailPresenter(view: self, getContactUseCase: InjectionUseCase.provideGetContact())
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-        if contact.gender == "MALE" {
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        presenter.getContact(id: contact.id!)
+    }
+    
+    func showError(error: [String]) {
+        
+    }
+    
+    func showContact(contact: Contact) {
+        self.contact =  contact
+        if self.contact.gender == "MALE" {
             ivAvatar.image = UIImage(named: "avatar_male")
         } else {
             ivAvatar.image = UIImage(named: "avatar_female")
         }
         
-        lbUserNameInstagram.text = contact.userNameInstagram
-        lbCategory.text = contact.category?.category
-        lbGender.text = contact.gender
+        lbUserNameInstagram.text = self.contact.userNameInstagram
+        lbCategory.text = self.contact.category?.category
+        lbGender.text = self.contact.gender
         lbRoles.text = "Some role 1, some role 3, some role 4, some role 5"
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier! == "segueEditContact" {
+            let vc = segue.destination as! SaveContactViewController
+            vc.contact = contact
+        }
     }
-    */
 
 }
