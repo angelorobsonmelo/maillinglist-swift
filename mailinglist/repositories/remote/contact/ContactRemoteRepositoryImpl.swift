@@ -5,7 +5,7 @@ import ObjectMapper
 import AlamofireObjectMapper
 
 public class ContactRemoteRepositoryImpl: ContactRemoteRepository {
- 
+
     private let jsonEncoder = JSONEncoder()
     private var contactUrl = "\(Constants.baseUrl)/contacts"
     private let headers = Utils.getHeadersWithJwtToken()
@@ -90,4 +90,20 @@ public class ContactRemoteRepositoryImpl: ContactRemoteRepository {
             
         }
     }
+    
+    public func delete(contact: Contact, onSuccess: @escaping (Bool?) -> Void, onError: @escaping ([String]) -> Void) {
+        let url = "contacts/\(contact.id!)"
+        let request = Utils.getRequest(object: contact, url: url, method: HTTPMethod.delete.rawValue)
+        
+        Alamofire.request(request).responseObject { (response: DataResponse<ResponseBase<Contact>>) in
+            switch response.result {
+            case .success:
+                onSuccess(true)
+            case .failure(let error):
+                onError(response.result.value?.errors ?? [error.localizedDescription])
+            }
+            
+        }
+    }
+    
 }

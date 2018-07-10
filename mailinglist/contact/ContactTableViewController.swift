@@ -22,7 +22,7 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
     var isEdited = false
     
     lazy var presenter: ContactPresenter = {
-        return ContactPresenter(view: self, getContacts: InjectionUseCase.provideGetContacts())
+        return ContactPresenter(view: self, getContacts: InjectionUseCase.provideGetContacts(), deleteContact: InjectionUseCase.provideDeleteContact())
     }()
     
     override func viewDidLoad() {
@@ -61,10 +61,6 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
         
     }
     
-    func deleteContract(isSuccess: Bool) {
-        
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.backgroundView = contacts.count == 0 ? label : nil
         return contacts.count
@@ -85,46 +81,29 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            contacts.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let contact = contacts[indexPath.row]
+            
+            let refreshAlert = UIAlertController(title: "Remove", message: "Do you want to remove \(contact.userNameInstagram!)?", preferredStyle: UIAlertControllerStyle.alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Remove", style: .default, handler: { (action: UIAlertAction!) in
+                self.contacts.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                self.presenter.deleteContact(contact: contact)
+            }))
+            
+            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                return
+            }))
+            
+            present(refreshAlert, animated: true, completion: nil)
         }
     }
+    
+    func deleteContract(isSuccess: Bool) {
+        let contactFilter = ContactFilter()
+        presenter.getContacts(contactFilter: contactFilter)
+    }
  
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

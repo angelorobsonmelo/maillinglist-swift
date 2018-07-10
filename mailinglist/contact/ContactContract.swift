@@ -9,7 +9,6 @@ protocol ContactViewContract {
 
 protocol ContactPresenterContract {
     func getContacts(contactFilter: ContactFilter, page: Int, perPage: Int)
-    func saveContact(contact: Contact)
     func deleteContact(contact: Contact)
 }
 

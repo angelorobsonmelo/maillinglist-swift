@@ -56,4 +56,8 @@ class InjectionUseCase {
     class func provideGetContact() -> GetContact {
         return GetContact(contactRemoteRepository: contactRepository)
     }
+    
+    class func provideDeleteContact() -> DeleteContact {
+        return DeleteContact(contactRemoteRepository: contactRepository)
+    }
 }

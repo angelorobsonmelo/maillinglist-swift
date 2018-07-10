@@ -9,4 +9,6 @@ public protocol ContactRemoteRepository {
     
     func saveContact(contactSave: ContactSave, onSuccess: @escaping (Contact) -> Void, onEmpty: @escaping () -> Void, onError: @escaping ([String]) -> Void)
     
+    func delete(contact: Contact, onSuccess: @escaping (Bool?) -> Void, onError: @escaping ([String]) -> Void)
+    
 }
