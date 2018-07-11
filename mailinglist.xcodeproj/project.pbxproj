@@ -12,6 +12,7 @@
 		C76232B120EAFBA700E6DF70 /* ContactDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76232B020EAFBA700E6DF70 /* ContactDetailPresenter.swift */; };
 		C76232B320EAFBB300E6DF70 /* ContactDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76232B220EAFBB300E6DF70 /* ContactDetailContract.swift */; };
 		C76232B520F430B000E6DF70 /* DeleteContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76232B420F430B000E6DF70 /* DeleteContact.swift */; };
+		C76232B820F587FA00E6DF70 /* ContactResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76232B720F587FA00E6DF70 /* ContactResponse.swift */; };
 		C7AA3DEF20D6F43800A44D7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AA3DEE20D6F43800A44D7E /* AppDelegate.swift */; };
 		C7AA3DF420D6F43800A44D7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7AA3DF220D6F43800A44D7E /* Main.storyboard */; };
 		C7AA3DF720D6F43800A44D7E /* mailinglist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C7AA3DF520D6F43800A44D7E /* mailinglist.xcdatamodeld */; };
@@ -80,6 +81,7 @@
 		C76232B020EAFBA700E6DF70 /* ContactDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailPresenter.swift; sourceTree = "<group>"; };
 		C76232B220EAFBB300E6DF70 /* ContactDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailContract.swift; sourceTree = "<group>"; };
 		C76232B420F430B000E6DF70 /* DeleteContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteContact.swift; sourceTree = "<group>"; };
+		C76232B720F587FA00E6DF70 /* ContactResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactResponse.swift; sourceTree = "<group>"; };
 		C7AA3DEB20D6F43800A44D7E /* mailinglist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mailinglist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7AA3DEE20D6F43800A44D7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7AA3DF320D6F43800A44D7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -187,6 +189,14 @@
 				C76232AC20EAFA9B00E6DF70 /* GetContact.swift */,
 			);
 			path = usecases;
+			sourceTree = "<group>";
+		};
+		C76232B620F587EB00E6DF70 /* dto */ = {
+			isa = PBXGroup;
+			children = (
+				C76232B720F587FA00E6DF70 /* ContactResponse.swift */,
+			);
+			path = dto;
 			sourceTree = "<group>";
 		};
 		C7AA3DE220D6F43800A44D7E = {
@@ -505,6 +515,7 @@
 		F4B4DA9920E29D7C0059E587 /* contact */ = {
 			isa = PBXGroup;
 			children = (
+				C76232B620F587EB00E6DF70 /* dto */,
 				F4B4DA9A20E29D8E0059E587 /* ContactRemoteRepository.swift */,
 				F4B4DA9C20E29E890059E587 /* ContactRemoteRepositoryImpl.swift */,
 			);
@@ -683,6 +694,7 @@
 				C7AA3E1A20D75C8300A44D7E /* Auth.swift in Sources */,
 				C7BC0F9C20DB2F9D00F70BE2 /* RoleTableViewController.swift in Sources */,
 				C7AA3DEF20D6F43800A44D7E /* AppDelegate.swift in Sources */,
+				C76232B820F587FA00E6DF70 /* ContactResponse.swift in Sources */,
 				F4B4DA9B20E29D8E0059E587 /* ContactRemoteRepository.swift in Sources */,
 				C7BC0FBE20DDEEB700F70BE2 /* DeleteRole.swift in Sources */,
 				C7BC0F9E20DB2FC400F70BE2 /* GetRoles.swift in Sources */,

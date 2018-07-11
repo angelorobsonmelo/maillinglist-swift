@@ -20,15 +20,15 @@ public class ContactRemoteRepositoryImpl: ContactRemoteRepository {
         return INSTANCE!
     }
     
-    public func getContacts(contactFilter: ContactFilter, page: Int, perPage: Int, onSuccess: @escaping ([Contact]) -> Void, onEmpty: @escaping () -> Void, onError: @escaping ([String]) -> Void) {
+    public func getContacts(contactFilter: ContactFilter, page: Int, perPage: Int, onSuccess: @escaping (ContactResponse) -> Void, onEmpty: @escaping () -> Void, onError: @escaping ([String]) -> Void) {
         let url = "contacts/filter?pag=\(page)&perPage=\(perPage)"
         let request = Utils.getRequest(object: contactFilter, url: url , method: HTTPMethod.post.rawValue)
 
-        Alamofire.request(request).responseObject { (response: DataResponse<ResponseBase<ContentObjects<Contact>>>) in
+        Alamofire.request(request).responseObject { (response: DataResponse<ContactResponse>) in
             switch response.result {
             case .success:
-                if let contactResponse = response.result.value?.data?.content {
-                    if contactResponse.isEmpty {
+                if let contactResponse = response.result.value {
+                    if (contactResponse.data?.content?.isEmpty)! {
                         onEmpty()
                         return
                     }
@@ -36,7 +36,7 @@ public class ContactRemoteRepositoryImpl: ContactRemoteRepository {
                     onSuccess(contactResponse)
                 }
             case .failure(let error):
-                onError(response.result.value?.errors ?? [error.localizedDescription])
+                onError(error as! [String])
             }
             
         }
