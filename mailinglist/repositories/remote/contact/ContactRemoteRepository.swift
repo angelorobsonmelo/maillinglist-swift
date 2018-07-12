@@ -3,7 +3,7 @@ import Foundation
 
 public protocol ContactRemoteRepository {
     
-    func getContacts(contactFilter: ContactFilter, page: Int, perPage: Int, onSuccess: @escaping (ContactResponse) -> Void, onEmpty: @escaping () -> Void, onError: @escaping ([String]) -> Void)
+    func getContacts(contactFilter: ContactFilter, page: Int, perPage: Int, onSuccess: @escaping (ResponseBase<ContentObjects<Contact>>) -> Void, onEmpty: @escaping () -> Void, onError: @escaping ([String]) -> Void)
     
     func getContact(id: Int, onSuccess: @escaping (Contact) -> Void, onEmpty: @escaping () -> Void, onError: @escaping ([String]) -> Void)
     

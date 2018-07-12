@@ -2,7 +2,7 @@ import Foundation
 
 protocol ContactViewContract {
     func showError(error: [String]) -> Void
-    func showContacts(contacts: ContactResponse) -> Void
+    func showContacts(response: ResponseBase<ContentObjects<Contact>>) -> Void
     func showContact(contact: Contact) -> Void
     func deleteContract(isSuccess: Bool)
 }

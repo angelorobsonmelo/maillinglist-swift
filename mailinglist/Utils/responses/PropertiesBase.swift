@@ -1,7 +1,7 @@
 import ObjectMapper
 import Foundation
 
-class PropertiesBase: Mappable {
+public class PropertiesBase: Mappable {
     
     var first: Bool?
     var last: Bool?
@@ -11,11 +11,11 @@ class PropertiesBase: Mappable {
     var totalPages: Int?
     var sort: [Sort]?
     
-    required init?(map: Map) {
+    required public init?(map: Map) {
         
     }
     
-    func mapping(map: Map) {
+    public func mapping(map: Map) {
         first <-   map["first"]
         last <-   map["last"]
         number <-   map["number"]

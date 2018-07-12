@@ -48,8 +48,8 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
             }
     }
     
-    func showContacts(contacts: ContactResponse) {
-        self.contacts = (contacts.data?.content!)!
+    func showContacts(response: ResponseBase<ContentObjects<Contact>>) {
+        self.contacts = (response.data?.content)!
         self.tableView.reloadData()
     }
     
