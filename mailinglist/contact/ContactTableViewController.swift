@@ -20,6 +20,9 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
     var contacts: [Contact] = []
     var id: Int?
     var isEdited = false
+    var currentPage = 0
+    var total = 0
+    var loadingContacts = false
     
     lazy var presenter: ContactPresenter = {
         return ContactPresenter(view: self, getContacts: InjectionUseCase.provideGetContacts(), deleteContact: InjectionUseCase.provideDeleteContact())
@@ -29,16 +32,13 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 300
-        
-        
+        label.text = "Please, wait..."
+        loadContacts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
-        label.text = "Please, wait..."
-        let contactFilter = ContactFilter()
-        presenter.getContacts(contactFilter: contactFilter)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,10 +47,22 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
                 vc.contact = contacts[tableView.indexPathForSelectedRow!.row]
             }
     }
+ 
+    private func loadContacts() {
+        let contactFilter = ContactFilter()
+        presenter.getContacts(contactFilter: contactFilter, page: currentPage)
+    }
     
     func showContacts(response: ResponseBase<ContentObjects<Contact>>) {
-        self.contacts = (response.data?.content)!
-        self.tableView.reloadData()
+        if let data = response.data {
+            self.contacts += data.content!
+            self.total = data.totalElements!
+            print("Total:", self.total, "- Já incluído:", self.contacts.count)
+            DispatchQueue.main.async {
+                self.loadingContacts = false
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func showError(error: [String]) {
@@ -104,6 +116,14 @@ class ContactTableViewController: UITableViewController, ContactViewContract {
     func deleteContract(isSuccess: Bool) {
         let contactFilter = ContactFilter()
         presenter.getContacts(contactFilter: contactFilter)
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == contacts.count - 10 && !loadingContacts && contacts.count != total {
+            currentPage += 1
+            loadContacts()
+            print("Carregando mais contacts")
+        }
     }
  
 }
