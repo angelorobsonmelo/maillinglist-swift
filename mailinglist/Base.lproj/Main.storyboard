@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FVO-dh-mDT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FVO-dh-mDT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -279,12 +279,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TbT-RY-gIG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TbT-RY-gIG" customClass="RoundedImageView" customModule="mailinglist" customModuleProvider="target">
                                 <rect key="frame" x="10" y="128" width="78" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="78" id="Hmb-08-Ghn"/>
                                     <constraint firstAttribute="height" constant="90" id="anE-bO-Qgu"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@michaele_design" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1B-zS-7HD">
                                 <rect key="frame" x="96" y="128" width="263" height="22"/>
@@ -364,7 +372,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="ivAvatar" destination="TbT-RY-gIG" id="ZqK-ic-R8o"/>
+                        <outlet property="ivAvatar" destination="TbT-RY-gIG" id="e08-3Q-Ua3"/>
                         <outlet property="lbCategory" destination="Ci6-kI-X8y" id="ZBh-iG-rEE"/>
                         <outlet property="lbGender" destination="624-00-4Y3" id="7gx-6O-gxS"/>
                         <outlet property="lbRoles" destination="der-3H-7zf" id="bNt-0Y-8eX"/>
@@ -409,8 +417,9 @@
                                     <action selector="saveContact:" destination="1Sb-gD-SLz" eventType="touchUpInside" id="iqy-DI-Q92"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTu-JM-NOS">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTu-JM-NOS" customClass="RoundedButton" customModule="mailinglist" customModuleProvider="target">
                                 <rect key="frame" x="16" y="237" width="343" height="36"/>
+                                <color key="backgroundColor" red="0.93710094690322876" green="0.98152667284011841" blue="0.015769848600029945" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="2vb-4R-wh5"/>
                                 </constraints>
@@ -418,6 +427,17 @@
                                 <state key="normal" title="Select category">
                                     <color key="titleColor" name="main"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="main"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="showCategories:" destination="1Sb-gD-SLz" eventType="touchUpInside" id="GL3-wY-JaQ"/>
                                 </connections>
@@ -585,6 +605,9 @@
         <image name="avatar_female" width="340" height="340"/>
         <namedColor name="main">
             <color red="0.0" green="0.68199998140335083" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="main">
+            <color red="0.0" green="0.68199998139999995" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>

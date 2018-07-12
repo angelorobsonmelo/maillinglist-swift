@@ -13,7 +13,8 @@ class ContactDetailViewController: UIViewController, ContactDetailViewContract {
     
     var contact: Contact!
     
-    @IBOutlet weak var ivAvatar: UIImageView!
+    
+    @IBOutlet weak var ivAvatar: RoundedImageView!
     @IBOutlet weak var lbUserNameInstagram: UILabel!
     @IBOutlet weak var lbCategory: UILabel!
     @IBOutlet weak var lbGender: UILabel!
@@ -29,8 +30,7 @@ class ContactDetailViewController: UIViewController, ContactDetailViewContract {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
-     
+        navigationController?.setNavigationBarHidden(false, animated: true)        
         if let id = contact.id {
         presenter.getContact(id: id)
         }

@@ -63,6 +63,8 @@
 		F401E75820D96C6B006D5047 /* InjectionRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75720D96C6B006D5047 /* InjectionRemoteRepository.swift */; };
 		F401E75E20D973C9006D5047 /* LoginRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401E75D20D973C9006D5047 /* LoginRemoteRepository.swift */; };
 		F41340AB20E2CBBD003335F3 /* ContactFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41340AA20E2CBBD003335F3 /* ContactFilter.swift */; };
+		F49B441D20F79217009D96A1 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49B441C20F79217009D96A1 /* RoundedButton.swift */; };
+		F49B441F20F7924C009D96A1 /* RoundedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49B441E20F7924C009D96A1 /* RoundedImage.swift */; };
 		F4B4DA9820E29B490059E587 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4DA9720E29B490059E587 /* Contact.swift */; };
 		F4B4DA9B20E29D8E0059E587 /* ContactRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4DA9A20E29D8E0059E587 /* ContactRemoteRepository.swift */; };
 		F4B4DA9D20E29E890059E587 /* ContactRemoteRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4DA9C20E29E890059E587 /* ContactRemoteRepositoryImpl.swift */; };
@@ -134,6 +136,8 @@
 		F401E75720D96C6B006D5047 /* InjectionRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionRemoteRepository.swift; sourceTree = "<group>"; };
 		F401E75D20D973C9006D5047 /* LoginRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRemoteRepository.swift; sourceTree = "<group>"; };
 		F41340AA20E2CBBD003335F3 /* ContactFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactFilter.swift; sourceTree = "<group>"; };
+		F49B441C20F79217009D96A1 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		F49B441E20F7924C009D96A1 /* RoundedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImage.swift; sourceTree = "<group>"; };
 		F4B4DA9720E29B490059E587 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		F4B4DA9A20E29D8E0059E587 /* ContactRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRemoteRepository.swift; sourceTree = "<group>"; };
 		F4B4DA9C20E29E890059E587 /* ContactRemoteRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRemoteRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -349,6 +353,7 @@
 		C7BC0FBA20DDC88100F70BE2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F49B441B20F791FB009D96A1 /* IBDesignables */,
 				C7BC0FAA20DC6E5400F70BE2 /* responses */,
 				C7AA3E1D20D75E7900A44D7E /* Constants.swift */,
 				C7BC0FBB20DDD16B00F70BE2 /* Utils.swift */,
@@ -500,6 +505,15 @@
 				F41340AA20E2CBBD003335F3 /* ContactFilter.swift */,
 			);
 			path = filter;
+			sourceTree = "<group>";
+		};
+		F49B441B20F791FB009D96A1 /* IBDesignables */ = {
+			isa = PBXGroup;
+			children = (
+				F49B441C20F79217009D96A1 /* RoundedButton.swift */,
+				F49B441E20F7924C009D96A1 /* RoundedImage.swift */,
+			);
+			path = IBDesignables;
 			sourceTree = "<group>";
 		};
 		F4B4DA9920E29D7C0059E587 /* contact */ = {
@@ -705,6 +719,7 @@
 				F4B4DA9D20E29E890059E587 /* ContactRemoteRepositoryImpl.swift in Sources */,
 				C7C176F820E1B9A700520782 /* CategoriesTableViewController.swift in Sources */,
 				F4B4DAA920E2A1EA0059E587 /* ContactContract.swift in Sources */,
+				F49B441F20F7924C009D96A1 /* RoundedImage.swift in Sources */,
 				F4B4DAA720E2A1E00059E587 /* ContactPresenter.swift in Sources */,
 				C76232B120EAFBA700E6DF70 /* ContactDetailPresenter.swift in Sources */,
 				C7BC0F8920D9EC8D00F70BE2 /* ViewController+CoreData.swift in Sources */,
@@ -714,6 +729,7 @@
 				C7C1770320E1BCD300520782 /* CategoryPresenter.swift in Sources */,
 				F401E75620D96B52006D5047 /* InjectionUseCase.swift in Sources */,
 				C7C176FF20E1BC5200520782 /* DeleteCategory.swift in Sources */,
+				F49B441D20F79217009D96A1 /* RoundedButton.swift in Sources */,
 				C7BC0FB920DDC3FE00F70BE2 /* ResponseBase.swift in Sources */,
 				C7C1770820E1BD4500520782 /* CategoryRemoteRepositoryImpl.swift in Sources */,
 				C7BC0F9220D9EF3200F70BE2 /* UserLocalRepository.swift in Sources */,
