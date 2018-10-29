@@ -8,11 +8,15 @@ struct Utils {
     
     public static func getHeadersWithJwtToken() -> HTTPHeaders {
         let token = KeychainWrapper.standard.string(forKey: "token")
+        var headers: HTTPHeaders = [:]
         
-        let headers: HTTPHeaders = [
-            "Authorization": "Bearer \(token!)",
-            "Accept": "application/json"
-        ]
+        if let token = token {
+             headers = [
+                "Authorization": "Bearer \(token)",
+                "Accept": "application/json"
+            ]
+        }
+      
         
         return headers
     }
@@ -26,7 +30,11 @@ struct Utils {
         
         request.httpMethod = method
         request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(token!)", forHTTPHeaderField: "Authorization")
+        
+        if let token = token {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+        
         request.httpBody = jsonData
         
         return request
