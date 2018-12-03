@@ -38,8 +38,7 @@ public class ContactRemoteRepositoryImpl: ContactRemoteRepository {
             case .failure(let error):
                 onError(error as! [String])
             }
-            
-        }
+                    }
         
     }
     

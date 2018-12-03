@@ -2,6 +2,7 @@ import ObjectMapper
 import Foundation
 
 public class ResponseBase<T: Mappable>: Mappable {
+    
     var errors: [String]?
     var data: T?
     
